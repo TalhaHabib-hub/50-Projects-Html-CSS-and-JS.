@@ -58,13 +58,15 @@ transition: 0.7s ease-in;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: white;
-  background-color: white;
+   color: var(--unactive);
+  background-color: var(--unactive);
 
 }
 .active{
   border-color: var(--active);
   transition: 0.7s ease-in;
+  color: var(--active);
+  background-color: var(--active);
 }
 .btan {
   background-color: var(--active);
