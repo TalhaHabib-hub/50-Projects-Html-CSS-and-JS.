@@ -8,6 +8,7 @@ body{
   display: flex;
   justify-content: center;
   margin-top: 34px;
+  background-color: rgb(41, 80, 80);
 }
 input{
   position: absolute;
