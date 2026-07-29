@@ -1,0 +1,132 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: cursive;
+  background-color: white;
+  overflow-x:hidden;
+  margin: 0;
+  z-index: -100;
+  
+}
+.container{
+  background-color: black;
+  color: #f4f4f4;  
+  transform-origin: top left;
+  padding: 55px;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  transition: 0.3s ease-in;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.circle-container{
+
+  position: fixed;
+  top:-90px ;
+  left:-90px;
+}
+.rotate{
+   transform: rotate(-20deg);
+   transition: 0.3s ease-in;
+}
+
+.circle{
+  width: 183px;
+  height: 183px;
+  background-color: rgb(211, 65, 89);
+  border-radius: 50%;
+  position: relative;
+  z-index: 3;
+   transition: 0.3s ease-in;
+   background: transparent;
+   border: 2px solid ;
+}
+.circle-rotate{
+  transform: rotate(-60deg);
+  transition: 0.3s ease-in;
+
+}
+.circle button{
+  position: absolute;
+  top: 120px;
+  font-size: xx-large;
+  background: transparent;
+  border: none;
+}
+.circle .close{
+  left: 38px;
+  transform: scale(1.4);
+}
+.circle .close i{
+  transform: rotateZ(-8deg);
+  color: white;
+}
+
+.circle .open{
+  color: white;
+  top: 114px;
+  left: 106px;
+  transform: scale(1);
+   transition: 0.3s ease-in;
+}
+img{
+  max-width: 100%;
+  border: 2px solid rgb(13, 93, 13);
+}
+
+.nav{
+position: fixed;
+bottom: 90px;
+left: 0;
+z-index: 100;
+}
+.nav ul{
+  list-style-type: none;
+  padding-left: 30px;
+}
+.nav ul li{
+  text-transform: uppercase;
+  color: black;
+  margin: 40px 12px;
+  transform: translateX(-90%);
+  transition: transform 0.2s ease-in;
+
+}
+.nav ul li :hover{
+ font-weight: bold;
+ color: rgb(13, 93, 13);
+}
+.nav ul li a{
+  color: black;
+  text-decoration: none;
+}
+.nav ul li a{
+  margin-left: 12px;
+}
+.nav ul li {
+  font-size: 20px;
+  margin-left: 10px;
+  transform: translateX(-100%)
+}
+.nav ul li + li{
+  margin-left: 25px;
+  transform: translatex(-200%);
+}
+.nav ul li + li + li{
+  margin-left: 35px;
+  transform: translatex(-300%);
+}
+.container.rotate+ .nav li{
+  transform: translateX(0);
+  transition: transform 0.6s ease-in;
+  transition-delay: .1s ;
+}
+@media(min-width:763px){
+  .container{
+    padding: 45px 230px ;
+  }
+}
