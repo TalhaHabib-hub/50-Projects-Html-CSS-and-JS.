@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beautiful Sunsets</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-midnight">
+    <nav class="top-nav">
+      <a class="brand" href="index.html">Beauty Explorer</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="animals.html">Animals</a>
+        <a href="cars.html">Cars</a>
+        <a href="nature.html">Nature</a>
+        <a href="waterfalls.html">Waterfalls</a>
+        <a href="sunsets.html" class="active">Sunsets</a>
+        <div class="theme-switcher" aria-label="Theme switcher">
+          <button
+            class="theme-btn active"
+            data-theme="midnight"
+            title="Midnight"
+          >
+            <i class="bx bxs-moon"></i>
+          </button>
+          <button class="theme-btn" data-theme="aurora" title="Aurora">
+            <i class="bx bxs-star"></i>
+          </button>
+          <button class="theme-btn" data-theme="espresso" title="Espresso">
+            <i class="bx bxs-coffee"></i>
+          </button>
+          <button class="theme-btn" data-theme="ocean" title="Ocean">
+            <i class="bx bxs-water"></i>
+          </button>
+          <button class="theme-btn" data-theme="light" title="Light">
+            <i class="bx bxs-sun"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="gallery-page">
+      <section
+        class="page-hero reveal"
+        style="
+          background-image:
+            linear-gradient(
+              120deg,
+              rgba(4, 12, 23, 0.55),
+              rgba(8, 25, 42, 0.35)
+            ),
+            url(&quot;https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80&quot;);
+        "
+      >
+        <h2>Beautiful Sunsets</h2>
+        <p>
+          Golden tones, dramatic skies, and calm horizons turn each sunset into
+          a dream.
+        </p>
+      </section>
+
+      <section
+        class="gallery-grid"
+        id="galleryGrid"
+        data-category="sunsets"
+      ></section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <div class="footer-grid">
+        <div class="footer-card">
+          <h4>Follow the beauty</h4>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer"
+              >Instagram</a
+            >
+            <a href="https://facebook.com" target="_blank" rel="noreferrer"
+              >Facebook</a
+            >
+            <a href="https://wa.me" target="_blank" rel="noreferrer"
+              >WhatsApp</a
+            >
+            <a href="https://github.com" target="_blank" rel="noreferrer"
+              >GitHub</a
+            >
+          </div>
+        </div>
+
+        <div class="footer-card">
+          <h4>Login</h4>
+          <form class="login-form">
+            <input type="text" placeholder="Your name" required />
+            <input type="email" placeholder="Your email" required />
+            <button type="submit">Enter</button>
+          </form>
+        </div>
+
+        <div class="footer-card">
+          <h4>Leave a review</h4>
+          <form class="review-form">
+            <textarea
+              placeholder="Tell us what you loved most..."
+              required
+            ></textarea>
+            <button type="submit">Send review</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 Beauty Explorer. Made with <span class="heart">❤</span> by
+          Talha Habib.
+        </p>
+      </div>
+    </footer>
+
+    <div class="modal" id="imageModal" aria-hidden="true">
+      <button class="modal-close" type="button" aria-label="Close preview">
+        ×
+      </button>
+      <img class="modal-image" src="" alt="Zoomed preview" />
+      <p class="modal-caption"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
