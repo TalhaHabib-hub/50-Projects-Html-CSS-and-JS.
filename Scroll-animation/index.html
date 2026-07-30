@@ -3,177 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beauty Explorer</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <title>Scroll-animation</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body class="theme-midnight">
-    <nav class="top-nav">
-      <a class="brand" href="index.html">Beauty Explorer</a>
-      <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="animals.html">Animals</a>
-        <a href="cars.html">Cars</a>
-        <a href="nature.html">Nature</a>
-        <a href="waterfalls.html">Waterfalls</a>
-        <a href="sunsets.html">Sunsets</a>
-        <div class="theme-switcher" aria-label="Theme switcher">
-          <button
-            class="theme-btn active"
-            data-theme="midnight"
-            title="Midnight"
-          >
-            <i class="bx bxs-moon"></i>
-          </button>
-          <button class="theme-btn" data-theme="aurora" title="Aurora">
-            <i class="bx bxs-star"></i>
-          </button>
-          <button class="theme-btn" data-theme="espresso" title="Espresso">
-            <i class="bx bxs-coffee"></i>
-          </button>
-          <button class="theme-btn" data-theme="ocean" title="Ocean">
-            <i class="bx bxs-water"></i>
-          </button>
-          <button class="theme-btn" data-theme="light" title="Light">
-            <i class="bx bxs-sun"></i>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <header class="hero hero-home" id="heroSection">
-      <div class="hero-content reveal">
-        <p class="eyebrow">Explore the world in motion</p>
-        <h1>Discover stunning beauty across land, sky, and water</h1>
-        <p>
-          Wander through galleries of breathtaking animals, sleek cars, peaceful
-          nature, roaring waterfalls, and glowing sunsets.
-        </p>
-        <a class="cta" href="animals.html">Start exploring</a>
-      </div>
-    </header>
-
-    <main class="featured-grid">
-      <a class="feature-card reveal" href="animals.html">
-        <img
-          src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=900&q=80"
-          alt="Beautiful wild animals"
-        />
-        <div>
-          <h3>Beautiful Animals</h3>
-          <p>Elegant creatures in their natural habitat.</p>
-        </div>
-      </a>
-
-      <a class="feature-card reveal" href="cars.html">
-        <img
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
-          alt="Luxury cars"
-        />
-        <div>
-          <h3>Luxury Cars</h3>
-          <p>Powerful machines crafted with precision and style.</p>
-        </div>
-      </a>
-
-      <a class="feature-card reveal" href="nature.html">
-        <img
-          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80"
-          alt="Beautiful nature landscape"
-        />
-        <div>
-          <h3>Nature</h3>
-          <p>Rolling mountains, deep forests, and open skies.</p>
-        </div>
-      </a>
-
-      <a class="feature-card reveal" href="waterfalls.html">
-        <img
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80"
-          alt="Waterfalls"
-        />
-        <div>
-          <h3>Waterfalls</h3>
-          <p>Pure motion and wild energy in one view.</p>
-        </div>
-      </a>
-    </main>
-
-    <footer class="site-footer reveal">
-      <div class="footer-grid">
-        <div class="footer-card">
-          <h4>Follow the beauty</h4>
-          <div class="social-links">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              title="Instagram"
-              ><i class="bx bxl-instagram"></i
-            ></a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              title="Facebook"
-              ><i class="bx bxl-facebook"></i
-            ></a>
-            <a
-              href="https://wa.me"
-              target="_blank"
-              rel="noreferrer"
-              title="WhatsApp"
-              ><i class="bx bxl-whatsapp"></i
-            ></a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noreferrer"
-              title="GitHub"
-              ><i class="bx bxl-github"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="footer-card">
-          <h4>Login</h4>
-          <form class="login-form">
-            <input type="text" placeholder="Your name" required />
-            <input type="email" placeholder="Your email" required />
-            <button type="submit">Enter</button>
-          </form>
-        </div>
-
-        <div class="footer-card">
-          <h4>Leave a review</h4>
-          <form class="review-form">
-            <textarea
-              placeholder="Tell us what you loved most..."
-              required
-            ></textarea>
-            <button type="submit">Send review</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>
-          © 2026 Beauty Explorer. Made with <span class="heart">❤</span> by
-          Talha Habib.
-        </p>
-      </div>
-    </footer>
-
-    <div class="modal" id="imageModal" aria-hidden="true">
-      <button class="modal-close" type="button" aria-label="Close preview">
-        ×
-      </button>
-      <img class="modal-image" src="" alt="Zoomed preview" />
-      <p class="modal-caption"></p>
-    </div>
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
 
     <script src="script.js"></script>
   </body>
