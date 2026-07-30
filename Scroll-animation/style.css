@@ -11,6 +11,7 @@ body{
   align-items: center;
   overflow-x:hidden ;
   background-color: #144d9dd0;
+  background-position: center;
 }
 h3{
   width: 100%;
