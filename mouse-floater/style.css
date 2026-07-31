@@ -1,0 +1,116 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+    height: 100vh;
+  overflow: hidden;
+}
+.whole{
+  width: 100vw;
+  height: 100vh;
+}
+h1{
+  color: rgb(252, 255, 252);
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%);
+  white-space: nowrap;
+}
+.left{
+  width: 50%;
+  min-width: 0px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(pictures/image3.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: all 1000ms ease-in-out;
+  position: absolute;
+  right:0px;
+  background-repeat: no-repeat;
+}
+.left::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color:  rgba(0,0,0,0.5);
+
+}
+
+.leftMouse .left{
+  width: 75%;
+}
+.leftMouse .right{
+  width: 25%;
+}
+
+.right{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(pictures/image4.jpg);
+  background-size: cover;
+  overflow: hidden;
+  transition: all 1000ms ease-in-out;
+  position: absolute;
+  left: 0px;
+  background-repeat: no-repeat;
+}
+.right::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color:  rgba(0,0,0,0.5);
+
+}
+.rightMouse .right{
+  width: 75%;
+}
+.rightMouse .left{
+  width: 25%;
+}
+
+a{
+  position: absolute;
+  width: 15rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: x-large;
+  font-weight: bold;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%);
+}
+#right-book{
+  border: 4px solid;
+  border-color: rgb(229, 158, 4);
+  color: rgb(245, 222, 179);
+}
+#right-book:hover{
+  background-color: rgb(229, 158, 4);
+  border-color: rgb(229, 158, 4);
+  color: wheat;
+  transition: all 0.2s ease-in-out;
+}
+
+#left-book{
+  border: 5px solid ;
+  color: rgb(245, 222, 179);}
+#left-book:hover{
+  background-color: rgb(19, 33, 46);
+  border-color:  rgb(19, 33, 46);
+  color: wheat;
+  transition: all 0.2s ease-in-out;
+}
