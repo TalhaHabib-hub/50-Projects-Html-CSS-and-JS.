@@ -1,0 +1,13 @@
+import styles from './Result.module.css'
+const Result = ({ text, time, handleDeleteTodo, idn}) => {
+  return (
+    <div className={styles.resultdiv}>
+      <p className={styles.text}>{text}</p>
+      <p className={styles.time}>{time}</p>
+      <button className={styles.delete} onClick={() => handleDeleteTodo(idn)}>
+        Delete
+      </button>
+    </div>
+  )
+}
+export default Result;

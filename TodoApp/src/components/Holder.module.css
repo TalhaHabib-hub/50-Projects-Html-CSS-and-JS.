@@ -1,0 +1,8 @@
+.holder{
+  border:2px solid rgb(141, 75, 75);
+  width: 385px;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 12px;
+background-color: rgb(148, 184, 184);
+}

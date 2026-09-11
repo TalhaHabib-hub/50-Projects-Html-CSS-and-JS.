@@ -1,0 +1,28 @@
+.item{
+  background-color: #3281d0;
+  list-style-type: none;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+.successButton {
+  background-color: #198754;
+  border: none;
+  color: #212529;
+  padding: 10px ;
+  border-radius: 10px;
+  float: right;
+}
+.focused{
+  background-color: #198754;
+}
+.warningButton {
+  background-color: #ffc107;
+  border: none;
+  color: #212529;
+  padding: 10px ;
+  border-radius: 10px;
+  float: right;
+  margin-right: 4px;
+}

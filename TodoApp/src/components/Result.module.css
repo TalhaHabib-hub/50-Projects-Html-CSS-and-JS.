@@ -1,0 +1,29 @@
+.resultdiv {
+  border: 3px solid #b35d5d;
+  padding: 10px;
+  margin: 10px 0; 
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+
+}
+.delete {
+  background-color: #b35d5d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.text {
+  flex: 1;
+  margin-right: 10px;
+  color: #651a1a;
+  font-weight: bold;
+}
+.time {
+  flex: 1;
+  margin-right: 10px;
+  color: #631e1e;
+  font-weight: bold;
+}

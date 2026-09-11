@@ -1,0 +1,29 @@
+.screen{
+  height: 34.6px;
+  border: 3px solid rgb(188, 106, 106);
+  border-right: 0px;
+  padding-bottom: 1.5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  text-align: center;
+background-color: rgb(186, 206, 206);
+}
+.time{
+  height: 35px;
+  border: none;
+   border: 3px solid rgb(188, 106, 106);
+  border-right: 0px;
+  border-left: 0px;
+  border-radius: 0 5px 5px 0;
+  outline: none;
+  text-align: center;
+  margin-right: 5px;
+background-color:  rgb(186, 206, 206);
+}
+.add{
+  border-radius: 7px;
+  background-color: rgb(152, 217, 193);
+  border: 3px solid rgb(188, 106, 106);
+  color: rgb(245, 161, 5);
+  font-weight: bold;
+}
