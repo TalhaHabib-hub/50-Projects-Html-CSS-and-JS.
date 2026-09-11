@@ -2,7 +2,7 @@ import styles from "./Nothing.module.css";
 const Nothing = () => {
   return (
    
-      <h1 className={styles.nothing}>Nothing to show</h1>
+      <h1 className={styles.nothing}>Enjoy your free time!</h1>
   
   );
 }
