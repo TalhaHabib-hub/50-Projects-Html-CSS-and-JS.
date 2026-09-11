@@ -1,5 +1,8 @@
 import styles from './Screen.module.css'
 import {useState} from 'react'
+import { MdDoneOutline } from "react-icons/md";
+
+
 const Screen = ({ handleAddTodo ,handleEnter}) => {
   const [text, setText] = useState("");
   const [time, setTime] = useState("");
@@ -15,7 +18,7 @@ const Screen = ({ handleAddTodo ,handleEnter}) => {
       <button className={styles.add} onClick={() => {
         handlehere(text, time);
       }}>
-        Add+
+       <MdDoneOutline />
       </button>
      </>
   )
