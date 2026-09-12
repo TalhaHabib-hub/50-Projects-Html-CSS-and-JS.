@@ -15,13 +15,15 @@ function App() {
 
   const handleAddTodo = (text, time) => {
     if (text != "" && time != "") {
-      const newTodo = {
-        id: todos.length + 1,
-        text: text,
-        time: time,
-      };
-      setTodos([...todos, newTodo]);
-       
+      // I did this below one because the older method can make mistake and can give us old values as reacts solves its tasks in manner what if state 1 and state many also state 4 updated after state but thought changed the same time still will be update letter and make things trouble when 1's state depends on 4th's state due to this function the react will always update the value first for it mean in our case 4th will be updated first because it is needed for first's. so Talha we called it functional update
+      setTodos((currentValu) => [
+        ...currentValu,
+        {
+          id: todos.length + 1,
+          text: text,
+          time: time,
+        },
+      ]);
     }
   };
 
