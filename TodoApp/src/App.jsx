@@ -14,29 +14,35 @@ function App() {
   ]);
 
   const handleAddTodo = (text, time) => {
-    if(text!="" && time!=""){
-    const newTodo = {
-      id: todos.length + 1,
-      text: text,
-      time: time,
-    };
+    if (text != "" && time != "") {
+      const newTodo = {
+        id: todos.length + 1,
+        text: text,
+        time: time,
+      };
       setTodos([...todos, newTodo]);
-    
+       
     }
-  }
- 
-
+  };
 
   const handleDeleteTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
-  }
+  };
   return (
     <Holder>
-      <center><h1>Todo App</h1></center>
+      <center>
+        <h1>Todo App</h1>
+      </center>
       <Screen handleAddTodo={handleAddTodo} />
       {todos.map((each) => (
-        <Result key={each.id} idn={each.id} text={each.text} time={each.time} handleDeleteTodo={handleDeleteTodo} />
+        <Result
+          key={each.id}
+          idn={each.id}
+          text={each.text}
+          time={each.time}
+          handleDeleteTodo={handleDeleteTodo}
+        />
       ))}
       {todos.length === 0 && (
         <center>
