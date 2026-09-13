@@ -1,16 +1,27 @@
-import styles from './Result.module.css'
-import { MdDelete } from "react-icons/md";
+
+import { useContext } from "react";
+import ContextWala from "../store/usingContext";
+import ResultJunior from "./ResultJunior";
 
 
-const Result = ({ text, time, handleDeleteTodo, idn}) => {
+const Result = () => {
+  const {todos} = useContext(ContextWala)
+
+  
+
   return (
-    <div className={styles.resultdiv}>
-      <p className={styles.text}>{text}</p>
-      <p className={styles.time}>{time}</p>
-      <button className={styles.delete} onClick={() => handleDeleteTodo(idn)}>
-        <MdDelete />
-      </button>
-    </div>
-  )
-}
+     <>
+      {todos.map((each) => (
+    //       <div className={styles.resultdiv} key={each.id}>
+    //   <p className={styles.text}>{each.text}</p>
+    //   <p className={styles.time}>{each.time}</p>
+    //   <button className={styles.delete} onClick={() => handleDeleteTodo(each.id)}>
+    //     <MdDelete />
+    //   </button>
+        // </div>
+        <ResultJunior key={todos.id} each={each}></ResultJunior>
+        ))}
+   </>
+  );
+};
 export default Result;
