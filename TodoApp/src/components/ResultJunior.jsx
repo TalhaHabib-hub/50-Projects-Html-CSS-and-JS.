@@ -6,7 +6,7 @@ import ContextWala from "../store/usingContext";
 const ResultJunior = ({each}) => {
    const {handleDeleteTodo} = useContext(ContextWala)
   return (
-    <div className={styles.resultdiv} key={each.id}>
+    <div className={styles.resultdiv} >
       <p className={styles.text}>{each.text}</p>
       <p className={styles.time}>{each.time}</p>
       <button className={styles.delete} onClick={() => handleDeleteTodo(each.id)}>

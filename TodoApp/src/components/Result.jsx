@@ -19,7 +19,7 @@ const Result = () => {
     //     <MdDelete />
     //   </button>
         // </div>
-        <ResultJunior key={todos.id} each={each}></ResultJunior>
+        <ResultJunior key={each.id} each={each}></ResultJunior>
         ))}
    </>
   );
