@@ -1,6 +1,6 @@
 import styles from "./Nothing.module.css";
 import { useContext } from "react";
-import ContextWala from "../store/usingContext";
+import {ContextWala} from "../store/usingContext";
 const Nothing = () => {
   const {todos} = useContext(ContextWala);
   return (

@@ -1,7 +1,7 @@
 import styles from "./ResultJunior.module.css";
 import { MdDelete } from "react-icons/md";
 import { useContext } from "react";
-import ContextWala from "../store/usingContext";
+import {ContextWala} from "../store/usingContext";
 
 const ResultJunior = ({each}) => {
    const {handleDeleteTodo} = useContext(ContextWala)

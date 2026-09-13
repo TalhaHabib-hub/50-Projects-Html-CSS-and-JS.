@@ -1,7 +1,7 @@
 import styles from "./Screen.module.css";
 import { useRef } from "react";
 import { MdDoneOutline } from "react-icons/md";
-import ContextWala from "../store/usingContext";
+import {ContextWala} from "../store/usingContext";
 import { useContext } from "react";
 
 const Screen = () => {

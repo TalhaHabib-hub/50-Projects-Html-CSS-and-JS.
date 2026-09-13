@@ -1,6 +1,6 @@
 
 import { useContext } from "react";
-import ContextWala from "../store/usingContext";
+import {ContextWala} from "../store/usingContext";
 import ResultJunior from "./ResultJunior";
 
 
