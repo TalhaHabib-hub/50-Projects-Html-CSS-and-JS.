@@ -1,0 +1,9 @@
+.postForm{
+  background-color: #212529;
+  width: 324px;
+  margin: 45px;
+  border: 2px solid #007af5;
+  color: white;
+  padding: 32px;
+  border-radius: 15px;
+}

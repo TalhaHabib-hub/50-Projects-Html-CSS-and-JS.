@@ -1,5 +1,6 @@
 .wholePage{
   display: flex;
+  background-color: #5399d5;
 }
 .centeral{
   width: 100%;

@@ -1,38 +1,105 @@
+import styles from './Post.module.css'
+import { useRef } from 'react';
+import { useContext } from 'react';
+import { ContextTalha } from '../store/ContextTalha';
+
+
 const Poster = () => {
-  return (
-    <form>
-      <div class="mb-3">
-        <label htmlFor="exampleInputEmail1" class="form-label">
-          Email address
+  const {addPost,} = useContext(ContextTalha)
+
+  
+  const TitleElement = useRef("");
+  const ContentElement = useRef("");
+  const LikesElement = useRef("");
+  const CommentsElement = useRef("");
+  const SharesElement = useRef("");
+  const tagsElement = useRef([]);
+
+  const handleSubmit = (event) => {
+        event.preventDefault(); 
+        
+     
+    
+        const title=TitleElement.current.value;
+        const likes=LikesElement.current.value;
+        const content= ContentElement.current.value;
+        const comments =CommentsElement.current.value;
+        const shares= SharesElement.current.value;
+      const tags = tagsElement.current.value.split(/(\s+)/);
+    
+    
+    addPost(title,likes,content,comments,shares,tags)
+    console.log(title, likes, content, comments, shares, tags)
+    
+      TitleElement.current.value = ("");
+       ContentElement.current.value = ("");
+       LikesElement.current.value = ("");
+       CommentsElement.current.value = ("");
+       SharesElement.current.value = ("");
+    tagsElement.current.value = "";
+    
+        
+  }
+  return (    
+    <form className={`${styles.postForm}`}
+      onSubmit={(event) => handleSubmit(event)}>
+      <div className="mb-3">
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          Title
         </label>
         <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
+          ref={TitleElement}
+          type="text"
+          className="form-control"
           aria-describedby="emailHelp"
         />
-        <div id="emailHelp" class="form-text">
-          We'll never share your email with anyone else.
-        </div>
-      </div>
-      <div class="mb-3">
-        <label htmlFor="exampleInputPassword1" class="form-label">
-          Password
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          Content
+        </label>
+        <textarea
+          ref={ContentElement}
+          className="form-control"
+          aria-describedby="emailHelp"
+        />
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          Likes
         </label>
         <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
+          ref={LikesElement}
+          type="text"
+          className="form-control"
+          aria-describedby="emailHelp"
         />
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" htmlFor="exampleCheck1">
-          Check me out
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          Comments
         </label>
-      </div>
-      <button type="submit" class="btn btn-primary">
-        Submit
+        <input
+          ref={CommentsElement}
+          type="text"
+          className="form-control"
+          aria-describedby="emailHelp"
+        />
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          Shares
+        </label>
+        <input
+          ref={SharesElement}
+          type="text"
+          className="form-control"
+          aria-describedby="emailHelp"
+        />
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          add tags with spaces
+        </label>
+        <input
+          ref={tagsElement}
+          type="text"
+          className="form-control"
+          aria-describedby="emailHelp"
+        />
+</div>
+      <button type="submit" className="btn btn-primary">
+        Post
       </button>
     </form>
   );

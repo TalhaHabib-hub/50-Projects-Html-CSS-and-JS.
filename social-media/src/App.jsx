@@ -5,11 +5,14 @@ import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar.jsx";
 import Card from "./components/Card.jsx";
 import Poster from "./components/post.jsx";
+import 'boxicons'
 import { useState } from "react";
+import ContextTalhaProvider from "./store/ContextTalha.jsx";
 
 function App() {
   const [navlink, setNavlink] = useState("Home")
   return (
+    <ContextTalhaProvider>
     <div className="wholePage">
       <Sidebar className="Sidebar" navlink={navlink} setNavlink={setNavlink}></Sidebar>
       <div className="centeral">
@@ -18,7 +21,8 @@ function App() {
        {navlink==="Create Post" && <Poster/>} 
         <Footer />
       </div>
-    </div>
+      </div>
+      </ContextTalhaProvider>
   );
 }
 

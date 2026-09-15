@@ -1,0 +1,28 @@
+.cardBig{
+  background-color:#212529;
+  margin: 23px;
+  text-align: center;
+  min-height: 334px;
+  color: rgb(255, 242, 219);
+}
+.uli{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    border-radius: 8px;
+
+}
+.hold{
+  background-color: rgb(17, 26, 26);
+  border-radius: 8px;
+}
+.listItem{
+  flex: 1;
+  margin: 3px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.mainKhan{
+ height: 100%;
+}
