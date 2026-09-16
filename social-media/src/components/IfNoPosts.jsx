@@ -1,20 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContextTalha } from "../store/ContextTalha";
 
 const IfNoPosts = () => {
   const { postlist, allINone } = useContext(ContextTalha);
-  const [fetched, setfetched] = useState(false);
-
-  if (!fetched) {
-    fetch("https://dummyjson.com/posts")
+  useEffect(()=>{ fetch("https://dummyjson.com/posts")
       .then((res) => res.json())
-      .then((data) => {
-        (allINone(data.posts), setfetched(true));
-      });
-  }
+      .then((data) => allINone(data.posts)
+      ),[]})
+  
   return (
     <>
-      {postlist.length === 0 && fetched === false && (
+      {postlist.length === 0&& (
         <div className="d-flex justify-content-center">
           <div
             className="spinner-border"
@@ -30,7 +26,7 @@ const IfNoPosts = () => {
           </div>
         </div>
       )}
-      {postlist.length === 0 && fetched === true && (
+      {postlist.length === 0 && (
         <center>
           <h1>There are no posts!</h1>
         </center>
