@@ -15,21 +15,19 @@ const Poster = () => {
   const SharesElement = useRef("");
   const tagsElement = useRef([]);
 
+  let reactions={likes:''}
   const handleSubmit = (event) => {
         event.preventDefault(); 
         
-     
-    
         const title=TitleElement.current.value;
-        const likes=LikesElement.current.value;
-        const content= ContentElement.current.value;
-        const comments =CommentsElement.current.value;
-        const shares= SharesElement.current.value;
+        reactions.likes =LikesElement.current.value;
+        const body= ContentElement.current.value;
+        const views =CommentsElement.current.value;
+        const userId= SharesElement.current.value;
       const tags = tagsElement.current.value.split(/(\s+)/);
     
     
-    addPost(title,likes,content,comments,shares,tags)
-    console.log(title, likes, content, comments, shares, tags)
+    addPost(title,reactions,body,views,userId,tags)
     
       TitleElement.current.value = ("");
        ContentElement.current.value = ("");

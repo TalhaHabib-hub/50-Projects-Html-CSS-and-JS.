@@ -1,13 +1,13 @@
-.wholePage{
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wholePage {
   display: flex;
   background-color: #5399d5;
+  min-height: 100vh; 
 }
 .centeral{
   width: 100%;
 }
-.Sidebar{
-  height: 100%;
-}
-.Sidebarstyle{
-  height: 380px;
-}
+

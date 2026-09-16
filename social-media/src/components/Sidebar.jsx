@@ -3,7 +3,7 @@ const Sidebar = ({navlink, setNavlink}) => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark  Sidebarstyle"
-      style={{ width: "240px", height:"100vh"}}
+      style={{ width: "240px", height: "100vh", position: "sticky", top: 0 }}
     >
       {" "}
       <a
