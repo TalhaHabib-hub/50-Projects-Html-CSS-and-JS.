@@ -3,14 +3,25 @@ import { ContextTalha } from "../store/ContextTalha";
 
 const IfNoPosts = () => {
   const { postlist, allINone } = useContext(ContextTalha);
-  useEffect(()=>{ fetch("https://dummyjson.com/posts")
+  const [fetched, setfetched] = useState(false);
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/posts",signal)
       .then((res) => res.json())
-      .then((data) => allINone(data.posts)
-      ),[]})
-  
+      .then((data) => {
+        (allINone(data.posts), setfetched(true));
+      });
+    return () => {
+      console.log('kasa laga mara abort')
+      controller.abort();
+    };
+  }, []);
+
   return (
     <>
-      {postlist.length === 0&& (
+      {postlist.length === 0 && fetched === false && (
         <div className="d-flex justify-content-center">
           <div
             className="spinner-border"
@@ -26,7 +37,7 @@ const IfNoPosts = () => {
           </div>
         </div>
       )}
-      {postlist.length === 0 && (
+      {postlist.length === 0 && fetched === true && (
         <center>
           <h1>There are no posts!</h1>
         </center>
