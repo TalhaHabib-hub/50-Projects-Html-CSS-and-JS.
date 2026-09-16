@@ -1,21 +1,42 @@
-import { useContext } from "react"
-import { ContextTalha } from "../store/ContextTalha"
+import { useContext, useState } from "react";
+import { ContextTalha } from "../store/ContextTalha";
 
 const IfNoPosts = () => {
-const {postlist,allINone} = useContext(ContextTalha)
+  const { postlist, allINone } = useContext(ContextTalha);
+  const [fetched, setfetched] = useState(false);
 
-  
-  const onRequest = () => {
-
+  if (!fetched) {
     fetch("https://dummyjson.com/posts")
-  .then(res => res.json())
-  .then(data => allINone(data.posts)) 
+      .then((res) => res.json())
+      .then((data) => {
+        (allINone(data.posts), setfetched(true));
+      });
   }
   return (
-  <>
-      {postlist.length === 0 && <center><h1>There are no posts!</h1><button type="button" className="btn btn-primary" onClick={onRequest}>Get Posts</button></center>}
-      </>
-  )
-}
+    <>
+      {postlist.length === 0 && fetched === false && (
+        <div className="d-flex justify-content-center">
+          <div
+            className="spinner-border"
+            role="status"
+            style={{
+              margin: "46px",
+              height: "56px",
+              width: "56px",
+              color: "lightblue",
+            }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
+      {postlist.length === 0 && fetched === true && (
+        <center>
+          <h1>There are no posts!</h1>
+        </center>
+      )}
+    </>
+  );
+};
 
 export default IfNoPosts;
