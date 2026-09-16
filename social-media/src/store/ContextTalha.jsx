@@ -42,9 +42,8 @@ const ContextTalhaProvider = ({ children }) => {
   const allINone = (DataArray) => {
     dispatchPostlist({
       type:"ADD_EXISTING",
-      payload: {
-        DataArray
-      }
+      payload: DataArray
+      
     })
   }
   
