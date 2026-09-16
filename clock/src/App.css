@@ -1,0 +1,13 @@
+.center{
+  background-color: rgb(23, 84, 84);
+  height: 145px;
+  margin: 45px;
+  align-self: center;
+  text-align: center;
+  border:8px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 53px;
+  color: rgb(114, 192, 192);
+}
