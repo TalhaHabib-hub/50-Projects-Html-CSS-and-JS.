@@ -27,13 +27,13 @@ const postListReducer = (currPostList, action) => {
 const ContextTalhaProvider = ({ children }) => {
   const [postlist, dispatchPostlist] = useReducer(postListReducer,[]);
   
-  const addPost = (title, likes, content, comments, shares, tags) => {
-    console.log(title,likes,content,comments,shares,tags)
+    //body-content, comments-likes useId-shares
+  const addPost = (title,reactions,body,views,userId,tags) => {
     dispatchPostlist({
       type: "ADD_ELEMENT",
       payload: {
         id: Date.now(),
-       title,likes,content,comments,shares,tags
+       title,reactions,body,views,userId,tags
       }
     })
     
