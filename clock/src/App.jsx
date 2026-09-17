@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import 'boxicons'
 
-
+//Nafees 
 
 function App() {
   let [currtime, setcurrtime] = useState(new Date())
@@ -11,7 +11,10 @@ function App() {
 useEffect(() => {
   const intervalId = setInterval(() => {
     setcurrtime(new Date())
-  },1000)
+  }, 1000);
+  
+  return () => clearInterval(intervalId);// when the components die there is no need to use currtime useSatate
+
 },[])
 
   return (
@@ -21,3 +24,5 @@ useEffect(() => {
 }
 
 export default App;
+
+/*Sir is saying to talk about hooks like useCallback (it is chacha ka bacha of useEffect) */
