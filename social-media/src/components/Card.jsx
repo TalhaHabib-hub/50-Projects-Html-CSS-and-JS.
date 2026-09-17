@@ -6,7 +6,7 @@ const Card = () => {
   const { postlist } = useContext(ContextTalha);
   return (
     <>
-      <IfNoPosts/>
+      <IfNoPosts />
       {postlist.map((each) => (
         <CardJunior each={each} key={each.id}></CardJunior>
       ))}

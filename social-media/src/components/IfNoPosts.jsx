@@ -2,22 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { ContextTalha } from "../store/ContextTalha";
 
 const IfNoPosts = () => {
-  const { postlist, allINone } = useContext(ContextTalha);
-  const [fetched, setfetched] = useState(false);
-  const controller = new AbortController();
-  const signal = controller.signal;
+  const { postlist,fetched } = useContext(ContextTalha);
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/posts",signal)
-      .then((res) => res.json())
-      .then((data) => {
-        (allINone(data.posts), setfetched(true));
-      });
-    return () => {
-      console.log('kasa laga mara abort')
-      controller.abort();
-    };
-  }, []);
 
   return (
     <>

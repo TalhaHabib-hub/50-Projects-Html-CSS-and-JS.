@@ -5,10 +5,11 @@ import { ContextTalha } from "../store/ContextTalha";
 const CardJunior = ({ each }) => {
   const { deletePost } = useContext(ContextTalha);
   return (
+    
     <div
       className={`card ${style.cardBig}`}
       style={{ width: "22rem" }}
-      key={each.id}
+      key={each.userId}
     >
       <div className={`${style.mainKhan}`}>
         <div className="card-body">
@@ -16,7 +17,7 @@ const CardJunior = ({ each }) => {
             {each.title}
             <span
               className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-              onClick={() => deletePost(each.id)}
+              onClick={() => deletePost(each.userId)}
               style={{ cursor: "pointer" }}
             >
               Delete
@@ -33,6 +34,8 @@ const CardJunior = ({ each }) => {
           </a>
         ))}
       </div>
+
+      
       <ul
         className={`list-group list-group-flush ${style.uli}`}
         style={{ display: "flex", flexDirection: "row" }}
@@ -40,12 +43,12 @@ const CardJunior = ({ each }) => {
       >
         <li className={`list-group-item ${style.listItem}`} key={1}>
           <box-icon name="like"></box-icon>
-          {each.reactions.likes}
+          {each.reactions.likes||356}
         </li>
         <li className={`list-group-item ${style.listItem} `} key={2}>
           {" "}
           <box-icon name="chat"></box-icon>
-          {each.views}
+          {each.id}
         </li>
         <li className={`list-group-item ${style.listItem}`} key={3}>
           <box-icon name="share" flip="horizontal"></box-icon>

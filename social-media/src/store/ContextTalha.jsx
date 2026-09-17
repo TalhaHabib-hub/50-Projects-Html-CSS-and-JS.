@@ -1,3 +1,4 @@
+import { useCallback,useEffect,useState } from "react";
 import { createContext, useReducer } from "react";
 
 
@@ -5,7 +6,8 @@ import { createContext, useReducer } from "react";
 export const ContextTalha = createContext({
   postlist: [],
   addPost: () => {},
-  allINone:() =>{},
+  allINone: () => { },
+  fetched: [],
   deletePost: () => {},
 });
 
@@ -13,10 +15,10 @@ export const ContextTalha = createContext({
 const postListReducer = (currPostList, action) => {
   let temp = currPostList;
   if (action.type === "ADD_ELEMENT") {
-    temp = [...currPostList, action.payload]
+    temp = [action.payload.objreach,...currPostList]
     
   } else if (action.type === "DELETE_POST") {
-    temp = currPostList.filter(each=>each.id!=action.payload.id)
+    temp = currPostList.filter(each=>each.userId!=action.payload.userId)
   }else if (action.type === "ADD_EXISTING") {
     temp = action.payload
   }
@@ -25,15 +27,15 @@ const postListReducer = (currPostList, action) => {
 }
 
 const ContextTalhaProvider = ({ children }) => {
-  const [postlist, dispatchPostlist] = useReducer(postListReducer,[]);
+  const [postlist, dispatchPostlist] = useReducer(postListReducer, []);
+  const [fetched, setfetched] = useState(false);
   
     //body-content, comments-likes useId-shares
-  const addPost = (title,reactions,body,views,userId,tags) => {
+  const addPost = (objreach) => {
     dispatchPostlist({
       type: "ADD_ELEMENT",
       payload: {
-        id: Date.now(),
-       title,reactions,body,views,userId,tags
+        objreach,
       }
     })
     
@@ -47,17 +49,35 @@ const ContextTalhaProvider = ({ children }) => {
     })
   }
   
-  const deletePost = (id) =>
+  const deletePost =useCallback((userId) =>
   {
     dispatchPostlist({
       type: 'DELETE_POST',
       payload: {
-        id,
+        userId,
       }
     })
-  }
+  }, [dispatchPostlist])
+  
+  
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/posts",signal)
+      .then((res) => res.json())
+      .then((data) => {
+        (allINone(data.posts), setfetched(true));
+      });
+      console.log('fetching is called')
+    return () => {
+      console.log('kasa laga mara abort')
+      controller.abort();
+    };
+  }, []);
+  
   return (
-    <ContextTalha.Provider value={{ postlist, addPost, deletePost,allINone }}>
+    <ContextTalha.Provider value={{ postlist, addPost, deletePost,allINone,fetched }}>
       {children}
     </ContextTalha.Provider>
   );
