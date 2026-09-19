@@ -7,7 +7,6 @@ export const ContextTalha = createContext({
   postlist: [],
   addPost: () => {},
   allINone: () => { },
-  fetched: [],
   deletePost: () => {},
 });
 
@@ -28,8 +27,6 @@ const postListReducer = (currPostList, action) => {
 
 const ContextTalhaProvider = ({ children }) => {
   const [postlist, dispatchPostlist] = useReducer(postListReducer, []);
-  const [fetched, setfetched] = useState(false);
-  
     //body-content, comments-likes useId-shares
   const addPost = (objreach) => {
     dispatchPostlist({
@@ -63,21 +60,11 @@ const ContextTalhaProvider = ({ children }) => {
   const controller = new AbortController();
   const signal = controller.signal;
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/posts",signal)
-      .then((res) => res.json())
-      .then((data) => {
-        (allINone(data.posts), setfetched(true));
-      });
-      console.log('fetching is called')
-    return () => {
-      console.log('kasa laga mara abort')
-      controller.abort();
-    };
-  }, []);
+  //once here was a useEffect
+
   
   return (
-    <ContextTalha.Provider value={{ postlist, addPost, deletePost,allINone,fetched }}>
+    <ContextTalha.Provider value={{ postlist, addPost, deletePost,allINone }}>
       {children}
     </ContextTalha.Provider>
   );
