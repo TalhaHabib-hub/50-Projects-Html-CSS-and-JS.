@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 
 const Sidebar = ({navlink, setNavlink}) => {
   return (
@@ -26,7 +28,7 @@ const Sidebar = ({navlink, setNavlink}) => {
         {" "}
         <li className="nav-item">
           {" "}
-          <a href="#" className={`nav-link ${navlink==="Home" && "active" } text-white`} aria-current="page" onClick={()=>setNavlink("Home")}>
+          <Link to="/" className={`nav-link text-white`} aria-current="page">
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -37,11 +39,11 @@ const Sidebar = ({navlink, setNavlink}) => {
               <use xlinkHref="#home"></use>
             </svg>
             Home
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
         <li>
           {" "}
-          <a href="#" className={`nav-link ${navlink==="Create Post" && "active" } text-white`} onClick={()=>setNavlink("Create Post")}>
+          <Link to="/create-post" className={`nav-link text-white`} >
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -52,7 +54,7 @@ const Sidebar = ({navlink, setNavlink}) => {
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Create Post
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
        </ul>
       <div className="dropdown">

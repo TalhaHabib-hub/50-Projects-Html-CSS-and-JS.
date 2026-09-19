@@ -2,9 +2,11 @@ import styles from "./Post.module.css";
 import { useRef } from "react";
 import { useContext } from "react";
 import { ContextTalha } from "../store/ContextTalha";
+import { useNavigate } from "react-router-dom";
 
 const Poster = () => {
   const { addPost } = useContext(ContextTalha);
+  const navigateTalha = useNavigate(); //use Nevigate is a hook that give us a method
 
   const TitleElement = useRef("");
   const ContentElement = useRef("");
@@ -20,26 +22,28 @@ const Poster = () => {
     const reactions = LikesElement.current.value;
     const body = ContentElement.current.value;
     const views = CommentsElement.current.value;
-     const userId = SharesElement.current.value;
+    const userId = SharesElement.current.value;
     const tags = tagsElement.current.value.split(" ");
 
     fetch("https://dummyjson.com/posts/add", {
-      
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title: title,
         userId: userId,
-        reactions:reactions,
+        reactions: reactions,
         body: body,
-        views:views,
-        tags:tags,
+        views: views,
+        tags: tags,
         /* other post data */
       }),
-    }).then((res) => res.json())
-      .then(objcame => {addPost(objcame);console.log(objcame,'agya')});
-
-
+    })
+      .then((res) => res.json())
+      .then((objcame) => {
+        addPost(objcame);
+      });
+    navigateTalha('/'); 
+    
     TitleElement.current.value = "";
     ContentElement.current.value = "";
     LikesElement.current.value = "";
