@@ -2,7 +2,7 @@ import {  StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./routes/App.jsx";
-import Poster from "./components/post.jsx";
+import Poster, {createPostActionTalha} from "./components/Post.jsx";
 import Card, { postloaderJan } from "./components/Card.jsx";
 
 //Data fetching using loader
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   { path: "/", element: <App />, 
   children: [
     { path: "", element: <Card />, loader:postloaderJan},
-    { path: "create-post", element: <Poster /> },
+    { path: "create-post", element: <Poster/> ,action: createPostActionTalha},
   ],
 },
   

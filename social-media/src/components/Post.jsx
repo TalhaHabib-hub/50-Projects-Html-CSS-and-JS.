@@ -1,67 +1,22 @@
+import { redirect } from "react-router-dom";
 import styles from "./Post.module.css";
-import { useRef } from "react";
-import { useContext } from "react";
-import { ContextTalha } from "../store/ContextTalha";
-import { useNavigate } from "react-router-dom";
+import { Form } from "react-router-dom";
 
 const Poster = () => {
-  const { addPost } = useContext(ContextTalha);
-  const navigateTalha = useNavigate(); //use Nevigate is a hook that give us a method
-
-  const TitleElement = useRef("");
-  const ContentElement = useRef("");
-  const LikesElement = useRef("");
-  const CommentsElement = useRef("");
-  const SharesElement = useRef("");
-  const tagsElement = useRef([]);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const title = TitleElement.current.value;
-    const reactions = LikesElement.current.value;
-    const body = ContentElement.current.value;
-    const views = CommentsElement.current.value;
-    const userId = SharesElement.current.value;
-    const tags = tagsElement.current.value.split(" ");
-
-    fetch("https://dummyjson.com/posts/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: title,
-        userId: userId,
-        reactions: reactions,
-        body: body,
-        views: views,
-        tags: tags,
-        /* other post data */
-      }),
-    })
-      .then((res) => res.json())
-      .then((objcame) => {
-        addPost(objcame);
-      });
-    navigateTalha('/'); 
-    
-    TitleElement.current.value = "";
-    ContentElement.current.value = "";
-    LikesElement.current.value = "";
-    CommentsElement.current.value = "";
-    SharesElement.current.value = "";
-    tagsElement.current.value = "";
-  };
   return (
-    <form
-      className={`${styles.postForm}`}
-      onSubmit={(event) => handleSubmit(event)}
-    >
+    /*Submiting data usig action
+    1. Action method can be used to perform an action on submission
+    fo Forms
+    2. Custom Form component need to be used along with name attribute for all inputs
+    3.Action function will get an data object. To generate correct request object method='post'  attribute should be used
+    */
+    <Form method="POST" className={`${styles.postForm}`}>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Title
         </label>
         <input
-          ref={TitleElement}
+          name="title"
           type="text"
           className="form-control"
           aria-describedby="emailHelp"
@@ -70,7 +25,7 @@ const Poster = () => {
           Content
         </label>
         <textarea
-          ref={ContentElement}
+          name="body"
           className="form-control"
           aria-describedby="emailHelp"
         />
@@ -78,7 +33,7 @@ const Poster = () => {
           Likes
         </label>
         <input
-          ref={LikesElement}
+          name="reactions"
           type="text"
           className="form-control"
           aria-describedby="emailHelp"
@@ -87,7 +42,7 @@ const Poster = () => {
           Comments
         </label>
         <input
-          ref={CommentsElement}
+          name="views"
           type="text"
           className="form-control"
           aria-describedby="emailHelp"
@@ -96,7 +51,7 @@ const Poster = () => {
           Shares
         </label>
         <input
-          ref={SharesElement}
+          name="userId"
           type="text"
           className="form-control"
           aria-describedby="emailHelp"
@@ -105,7 +60,7 @@ const Poster = () => {
           add tags with spaces
         </label>
         <input
-          ref={tagsElement}
+          name="tags"
           type="text"
           className="form-control"
           aria-describedby="emailHelp"
@@ -114,8 +69,37 @@ const Poster = () => {
       <button type="submit" className="btn btn-primary">
         Post
       </button>
-    </form>
+    </Form>
   );
 };
+
+//this below is an action function it gets defautl data attribute as far as we write method='POST'
+export async function createPostActionTalha(data) {
+  const formData = await data.request.formData(); // this will give us data of all the form
+  const postData = Object.fromEntries(formData);
+  postData.tags = postData.tags.split(" ");
+  // Talha look for this below one it is giving a maded object
+  console.log(postData,'postData,data-formData-postData')
+
+  fetch("https://dummyjson.com/posts/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify( postData ),
+      // JSON.stringify({// Talha from the console i see the postdata has this same arrangmeent automatically
+      // title: postData.title,
+      // userId: postData.userId,
+      // reactions: postData.reactions,
+      // body: postData.body,
+      // views: postData.views,
+      // tags: postData.tags,
+    // }),
+  })
+    .then((res) => res.json())
+    .then((objcame) => {
+      console.log(objcame,'objcame');
+    });
+
+  return redirect("/");
+}
 
 export default Poster;
