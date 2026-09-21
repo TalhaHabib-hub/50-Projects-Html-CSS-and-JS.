@@ -9,6 +9,15 @@ const reducer = (store = INITIAL_VALUE, action) => {// here store will use the v
   if (action.type === "INCREMENT") {
     console.log("reducer called", action);
     return { counter: store.counter + 1 }; // Talha here a whole object is been returned
+  } else if (action.type === 'DECREMENT') {
+    console.log("reducer called", action);
+    return { counter: store.counter - 1 };
+  } else if (action.type === 'ADDITION') {
+    console.log("reducer called", action);
+    return { counter: store.counter + action.payload.number }
+  } else if (action.type === 'SUBTRACT') {
+    console.log("reducer called", action);
+    return { counter: store.counter - action.payload.number }
   }
   return newStore;
 };
@@ -18,17 +27,20 @@ const store = redux.createStore(reducer);
 
 // There is a slight  differene between subscriber and someone using the value
 const subscriber = () => {
-  console.log("store: ", store);
 
   const state = store.getState();// when you say i don't need subscription just give me the value, here it is giving the whole value 
-  console.log("and state :", state);
   console.log(state);
 };
 //here the function is the subscriber Talha letter on we will see that react components will be the subscriber
 store.subscribe(subscriber);// here actually the subscription is created the subscriber function is subscribed to store now so Talha it basically mean that subscriber is subscrib ed so when ever your value changes call it function will run and by the above function it will get whatever it needs
 
 // This is throwing actions
+// these below few are without payload
 store.dispatch({ type: "INCREMENT" });// here action is created 
 store.dispatch({ type: "INCREMENT" });//Talha action
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "INCREMENT" });
+store.dispatch({ type: "INCREMENT" });//Talha action
+store.dispatch({ type: "DECREMENT" });
+store.dispatch({ type: "DECREMENT" });
+
+store.dispatch({ type: "ADDITION",payload:{number:7}})
+store.dispatch({ type: "SUBTRACT",payload:{number:9}});
