@@ -1,4 +1,5 @@
-import itemImage from '../../public/images/7.jpg'
+import itemImage from '../../public/images/3.jpg'
+
 
 const HomeItem = ({ item }) => {
   return (

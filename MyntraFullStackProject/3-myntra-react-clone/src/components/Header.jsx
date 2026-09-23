@@ -6,7 +6,7 @@ const Header = () => {
           <a href="#">
             <img
               className="myntra_home"
-              src="images/myntra_logo.webp"
+              src="public/images/myntra_logo.webp"
               alt="Myntra Home"
             />
           </a>
@@ -30,26 +30,19 @@ const Header = () => {
         </div>
         <div className="action_bar">
           <div className="action_container">
-            <span className="material-symbols-outlined action_icon">person</span>
             <span className="action_name">Profile</span>
           </div>
-
           <div className="action_container">
-            <span className="material-symbols-outlined action_icon">favorite</span>
             <span className="action_name">Wishlist</span>
           </div>
-
           <a className="action_container" href="pages/bag.html">
-            <span className="material-symbols-outlined action_icon">
-              shopping_bag
-            </span>
             <span className="action_name">Bag</span>
             <span className="bag-item-count">0</span>
           </a>
         </div>
       </header>
     </>
-  )
-}
+  );
+};
 
 export default Header;
