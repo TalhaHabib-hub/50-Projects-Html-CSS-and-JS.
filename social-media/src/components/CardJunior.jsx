@@ -5,7 +5,6 @@ import { ContextTalha } from "../store/ContextTalha";
 const CardJunior = ({ each }) => {
   const { deletePost } = useContext(ContextTalha);
   return (
-    
     <div
       className={`card ${style.cardBig}`}
       style={{ width: "22rem" }}
@@ -27,7 +26,6 @@ const CardJunior = ({ each }) => {
         </div>
       </div>
       <div className="card-body">
-        
         {each.tags.map((tag) => (
           <a href="#" className="card-link" key={tag}>
             #{tag}
@@ -35,7 +33,6 @@ const CardJunior = ({ each }) => {
         ))}
       </div>
 
-      
       <ul
         className={`list-group list-group-flush ${style.uli}`}
         style={{ display: "flex", flexDirection: "row" }}
@@ -43,7 +40,7 @@ const CardJunior = ({ each }) => {
       >
         <li className={`list-group-item ${style.listItem}`} key={1}>
           <box-icon name="like"></box-icon>
-          {each.reactions.likes||356}
+          {each.reactions.likes || 356}
         </li>
         <li className={`list-group-item ${style.listItem} `} key={2}>
           {" "}

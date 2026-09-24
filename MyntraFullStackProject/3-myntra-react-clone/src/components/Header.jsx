@@ -1,14 +1,20 @@
+import { IoPersonSharp } from "react-icons/io5";
+import { FaHeart } from "react-icons/fa";
+import { IoBag } from "react-icons/io5";
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
       <header>
         <div className="logo_container">
           <a href="#">
+            <Link to='/'>
             <img
               className="myntra_home"
               src="public/images/myntra_logo.webp"
               alt="Myntra Home"
-            />
+              />
+              </Link>
           </a>
         </div>
         <nav className="nav_bar">
@@ -30,15 +36,18 @@ const Header = () => {
         </div>
         <div className="action_bar">
           <div className="action_container">
+            <IoPersonSharp />
             <span className="action_name">Profile</span>
           </div>
           <div className="action_container">
+            <FaHeart />
             <span className="action_name">Wishlist</span>
           </div>
-          <a className="action_container" href="pages/bag.html">
+          <Link className="action_container" to="/bag">
+            <IoBag />
             <span className="action_name">Bag</span>
             <span className="bag-item-count">0</span>
-          </a>
+          </Link>
         </div>
       </header>
     </>
