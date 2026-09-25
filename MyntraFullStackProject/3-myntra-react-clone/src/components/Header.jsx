@@ -1,23 +1,27 @@
 import { IoPersonSharp } from "react-icons/io5";
+import { useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
 import { IoBag } from "react-icons/io5";
+import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const Header = () => {
+  const bag = useSelector((store) => store.bag);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <header>
         <div className="logo_container">
-          <a href="#">
-            <Link to='/'>
+          <Link to="/">
             <img
               className="myntra_home"
-              src="public/images/myntra_logo.webp"
-              alt="Myntra Home"
-              />
-              </Link>
-          </a>
+              src="public/images/talon-logo.png"
+              alt="Talon_logo"
+            />
+          </Link>
         </div>
-        <nav className="nav_bar">
+        <nav className={`nav_bar${menuOpen ? " is-open" : ""}`}>
           <a href="#">Men</a>
           <a href="#">Women</a>
           <a href="#">Kids</a>
@@ -30,10 +34,25 @@ const Header = () => {
         <div className="search_bar">
           <span className="material-symbols-outlined search_icon">search</span>
           <input
+            type="search"
             className="search_input"
+            aria-label="Search products, brands and more"
             placeholder="Search for products, brands and more"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
           />
         </div>
+        <button
+          className="menu_button"
+          type="button"
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          {menuOpen ? <FiX /> : <FiMenu />}
+        </button>
         <div className="action_bar">
           <div className="action_container">
             <IoPersonSharp />
@@ -46,7 +65,7 @@ const Header = () => {
           <Link className="action_container" to="/bag">
             <IoBag />
             <span className="action_name">Bag</span>
-            <span className="bag-item-count">0</span>
+            <span className="bag-item-count">{bag.length}</span>
           </Link>
         </div>
       </header>

@@ -1,21 +1,17 @@
-import theImage from '../../public/images/3.jpg'
+import { useDispatch } from "react-redux";
+import { bagSliceAction } from "../store/bagSlice";
+import { FiTrash2 } from "react-icons/fi";
 
+const BagItems = ({ item }) => {
+  const dispatching = useDispatch();
 
-const item = {
-  company: 'TreeIntel',
-  item_name: 'FullStack_website',
-  current_price: 2342,
-  original_price: 2324,
-  discount_percentage:56,
-  return_period: 3,
-  delivery_date:'12/3/2026'
-}
-
-const BagItems = () => {
+  const handleRemove = () => {
+    dispatching(bagSliceAction.removeFromBag(item.id));
+  };
   return (
-    <div className="bag-item-container">
+    <div className="bag-item-container" key={item.id}>
       <div className="item-left-part">
-        <img className="bag-item-img" src={theImage} />
+        <img className="bag-item-img" src={item.image} alt={item.item_name} />
       </div>
       <div className="item-right-part">
         <div className="company">{item.company}</div>
@@ -37,9 +33,14 @@ const BagItems = () => {
         </div>
       </div>
 
-      <div className="remove-from-cart" onClick={()=>console.log('item is remove from bag')}>
-        X
-      </div>
+      <button
+        className="remove-from-cart"
+        type="button"
+        aria-label={`Remove ${item.item_name} from bag`}
+        onClick={handleRemove}
+      >
+        <FiTrash2 />
+      </button>
     </div>
   );
 };
