@@ -1,0 +1,25 @@
+.main2{
+ min-height: 90vh;
+
+}
+.counter{
+  width: 40%;
+  border: 2px solid maroon;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.bara{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.counter input{
+  width: 100%;
+  border-radius: 6px;
+  border-color: maroon;
+  text-align: center;
+}

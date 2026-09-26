@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="ground">
+    <div class="board">
+      <!-- <h1>Bat beats Ball</h1>
+      <h1>Ball beats Wicket</h1>
+      <h1>Wicket beats Bat</h1> -->
+      <pre class="main-board">Bat beats Ball
+   Ball beats Wicket
+  Wicket beats Bat</pre>
+    </div>
+
+    <div class="score-board">
+      <h4 class="comp">Computer : Bat</h4>
+      <h4 class="you">You : Ball</h4>
+    </div>
+    
+    <div class="finalResult">Result!</div>
+    <div class="selection">
+      <button class="ball"><img src="ball.jpg" alt=""></button>
+      <button class="bat"><img src="bat.jpg" alt=""></button>
+      <button class="wicket"><img src="images.png" alt=""></button>
+    </div>
+
+    <div class="detail">
+      <div class="each">
+      <caption>Played</caption>
+       <input type="number" class="played" readonly >
+      </div>
+
+      <div class="each">
+      <caption>Won</caption>
+       <input type="number" readonly class="won">
+      </div>
+      
+      <div class="each"> 
+      <caption>Loss</caption>
+       <input type="number" class="lossed" readonly>
+      </div>
+
+      <div class="each"> 
+      <caption>Tied</caption>
+       <input type="number" class="tied" readonly>
+      </div>
+
+      
+      
+    </div>
+    <button class="reset"><i class='bx bx-refresh'></i></button>
+
+  <div class="banner">
+    <h1>Talha Habib Cricket Council</h1>
+  </div>
+   
+
+
+  <script src="script.js"></script>
+</body>
+</html>

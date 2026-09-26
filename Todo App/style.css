@@ -1,0 +1,44 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(178, 159, 159);
+}
+.heading{
+  display: grid;
+  grid-template-columns: 240px 150px 89px;
+  
+}
+.heading #text, .heading #tarikh, .heading button{
+  margin: 3px;
+  border-radius: 8px;
+  height: 36px;
+  text-align: center;
+} 
+h1{
+  position: relative;
+  left: 155px;
+}
+
+.heading button{
+  background-color: green;
+  color: white;
+  border-color: green;
+}
+.displaying {
+  display: grid;
+  grid-template-columns: 240px 150px 89px;  
+ 
+ 
+  
+}
+.displaying button{
+  background-color: rgb(85, 4, 4);
+  color: white;
+}
+.displaying span, .displaying button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  margin: 3px;
+  border-radius: 8px;
+}

@@ -1,0 +1,32 @@
+div{
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    border-width: 4px;
+    border-style: solid;
+    border-color: brown;
+    padding-left:  25px;
+    padding-right:  25px;
+    margin-top: 32px;
+
+}
+h1{
+    height: 50px;
+    width: 200px;
+    background-color: palevioletred;
+    border-width: 4px;
+    border-color: blue;
+    border-style: dashed;
+    text-align: center;
+    padding: 32px 6px 4px 7px;   /*padding short hand */
+    margin: 43px;
+
+}
+p{
+     border: 5px solid blue;/* border short hand */
+     color: aliceblue;
+     background-color: black;
+} 
+body{
+    background-color: blueviolet;
+}

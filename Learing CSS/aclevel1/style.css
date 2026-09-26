@@ -1,0 +1,38 @@
+h1{
+    color:rgb(149, 0, 97);
+    text-align: center;
+    text-decoration: rgb(149, 0, 97) dotted underline;
+    font-weight: lighter;
+    font-family: cursive;
+    font-size: 50px;
+}
+p{
+    color: rgb(58, 3, 97);
+    text-align: center;
+    text-decoration:rgb(58, 3, 97 )underline;
+    font-weight:400;
+    font-family: arial;
+}
+button{
+    color: #ffff00;
+    background-color: peru;
+    /* text-align: left; */
+}
+body{
+ background-color: rgba(10, 219, 153, 0.914);
+}
+a{
+    color: purple;
+    text-decoration: none;
+    font-size: 34px;
+}
+#talha{
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 33px;
+}
+.ary{
+    line-height: 44px;
+    text-transform: uppercase;
+    font-family: cursive;
+}

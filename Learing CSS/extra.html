@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+         <a href="https://www.google.com" target="_blank">Open Google in new tab</a>
+
+        <!-- Link to another page in same folder -->
+    <a href="about.html">About Page</a>
+    <!-- talha target='_blank' was not working for image tag when use as link clickable, and Talha video is unclick able -->
+
+    </header>
+    <strong>Strong text (bold + important for SEO)</strong> <br>
+
+    <em>Emphasized text (italic + important for SEO)</em> <br>
+
+    <mark>Highlighted / Marked text</mark> <br>
+
+    <blockquote>This is a blockquote - used for long quotes from someone</blockquote>
+
+    <abbr title="HyperText Markup Language">HTML</abbr> - hover over this to see full form <br>
+
+    <cite>Citation text - for book/movie titles</cite>
+
+        <!-- Open link in new tab using target="_blank" -->
+    
+      <figure>
+        <img src="images/photo.png" alt="My photo" width="300" title="He is Talha Habib">
+        <figcaption>This is a caption below the image</figcaption>
+    </figure>
+      <main>
+           
+            <section>
+                <h2>Admissions</h2>
+                Admiisions will start soon
+
+            </section>
+            <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique commodi nesciunt culpa. Nobis, temporibus facilis dolore consequatur, quidem quam blanditiis molestias adipisci itaque commodi in magni repudiandae fugiat repellat sed ipsam minus et voluptatibus debitis quae, ratione error nostrum aspernatur. Minima perferendis libero perspiciatis doloremque eius! Mollitia laborum iure sunt inventore? Ab sit numquam, nulla expedita laborum nihil omnis atque deserunt voluptatum voluptates, minima accusantium blanditiis obcaecati. Doloremque nesciunt excepturi dolorem? Temporibus, ducimus aspernatur suscipit adipisci, dolore est beatae nesciunt natus maiores laboriosam voluptatem facilis ex porro, consequuntur nisi! Nam praesentium reiciendis laboriosam minima tenetur, velit magni impedit rem corporis autem iure architecto adipisci id fugit delectus ab voluptatem vel amet, commodi explicabo! Maiores, ducimus sunt animi sit consectetur autem at, fugiat quae impedit est debitis rerum adipisci itaque? Consectetur exercitationem doloremque provident ratione reiciendis ut rem dolor accusantium, neque sint error architecto fuga odio quia, expedita animi doloribus eligendi temporibus aperiam eius repellendus ullam voluptatibus! Nulla impedit odit cum officia aliquam sapiente nesciunt quod reprehenderit itaque, tempore neque eum cupiditate excepturi laudantium aut ex facere consectetur. Ipsum esse, dolorum tempore quam iusto quod voluptas a suscipit porro voluptatibus rem ipsa in ea ex quasi, officia libero iste officiis maiores quo, nam repellat nemo neque veritatis! Sequi quae ad tenetur eos, ut esse fugiat sunt culpa doloremque nulla perspiciatis, assumenda porro? Rem quasi in ut, repellendus nobis saepe nam quo reprehenderit neque officia fuga?</article>
+            <aside>This is not that much realted it can generally be ads</aside>
+        </main>
+       <dl> <!--description list-->
+        <dt>HTML</dt> <!--description term-->
+        <dd>HyperText Markup Language - structure of web pages</dd><!--description definition-->
+
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets - styling of web pages</dd>
+
+        <dt>JavaScript</dt>
+        <dd>Programming language for web interactivity</dd>
+    </dl>
+    <!-- Talha table ki head or body hotan han dono ro ka andar likhtan han  -->
+     <!-- caption inside the table tag (will be) -->
+      <form action="https.....">
+        <!-- action stores the address at the server where the data will be stored -->
+     <label for="id only jani link karaga">Full Name:</label>
+      <input type="password" placeholder="name" name="shows what you want to collect/ name of the data" id="id only jani link karaga" required="true" value="jhon / if user skiped the value bydefault will be this">
+      <input type="submit">
+      type="email"
+      type="number"
+      type="tel"
+      type="date" 
+      type="time"
+      type="url"
+      type="range"
+      type="color"
+      type="search"
+      type="button"
+      type="checkbox"
+      type="reset"
+      <caption>chose fruite</caption>
+      <label for="apple">Apple</label>
+      <input type="checkbox" name="dr" id="apple"><br> <!--stlll can chose mutliple but not in the case of radio-->
+      <!-- you can submit a form so that is the reason sir was always using form tag -->
+       <table border="2 black" >
+        <tr>
+            <th>Fruite</th>
+            <th>Chose</th>
+        </th>
+        <tr>
+       <td> <label for="Banana">Banana</label></td>
+       <td> <input type="checkbox" name="dr" id="Banana"></td>
+      </tr>
+      <tr>      <td> <label for="Mango">Mango</label></td>
+      <td><input type="checkbox" name="dr" id="Mango"></td></tr>
+       <tr>
+       <td><label for="Orange">Orange</label></td>
+      <td><input type="checkbox" name="dr" id="Orange"></td></tr>
+</table>
+    <input type="radio" id="female" name="gender"> <label for="male" value="Male">Male</label> <br>
+    <input type="radio" id="male" name="gender"> <label for="female" value="Female">Female</label> <br>
+        <label for="city">City:</label>
+        <select id="city" name="city" > <!--data kis chiz ka ha woh name ma hoga wo data asal ma ha kia uska lia value hogi-->
+            <option value="">-- Select City --</option>
+            <option value="karachi" selected>Karachi</option>
+            <option value="lahore">Lahore</option>
+            <option value="lahore">Lahore</option>
+            <option value="islamabad">Islamabad</option>
+            <option value="peshawar">Peshawar</option>
+        </select>
+              <!-- Multi-select dropdown (hold Ctrl to select multiple) -->
+        <label for="languages">Languages (select multiple):</label>
+        <select id="languages" name="languages" multiple size="4">
+            <option value="python">Python</option>
+            <option value="cpp">C++</option>
+            <option value="html">HTML</option>
+            <option value="js">JavaScript</option>
+        </select>
+
+      </form>
+          <!-- Audio player -->
+    <audio controls>
+        <!-- controls = shows play/pause/volume buttons -->
+        <source src="audio.mp3" type="audio/mpeg">
+        <source src="audio.ogg" type="audio/ogg">
+        Your browser does not support audio.   <!-- fallback text -->
+    </audio>
+
+        <!-- Details / Summary (accordion / expandable section) -->
+    <details>
+        <summary>Click to expand</summary>
+        <p>This content is hidden until you click the summary.</p>
+        <p>Very useful for FAQs!</p>
+    </details>
+    
+        <!-- Fieldset groups related inputs together -->
+        <fieldset>
+            <legend>Address Information</legend>
+
+            <label for="street">Street:</label>
+            <input type="text" id="street" name="street"> <br><br>
+
+            <label for="zip">ZIP Code:</label>
+            <input type="text" id="zip" name="zip">
+        </fieldset>
+            <!-- Progress bar -->
+    <label>Python skill:</label>
+    <progress value="34" max="100">85%</progress> <br>
+       
+    <!-- Meter (gauge - like battery level) -->
+    <label>Storage used:</label>
+    <meter value="60" min="0" max="100" low="30" high="80" optimum="50">60%</meter> <br>
+
+        <!-- Canvas (for drawing with JavaScript) -->
+    <canvas id="myCanvas" width="400" height="200"
+            style="border:1px solid black">
+        Your browser does not support canvas.
+    </canvas> <br>
+        <!-- Dialog box (popup - controlled with JavaScript) -->
+    <dialog id="myDialog">
+        <p>This is a dialog popup!</p>
+        <button onclick="document.getElementById('myDialog').close()">Close</button><br>
+    </dialog>
+    <button onclick="document.getElementById('myDialog').showModal()">Open Dialog</button> <br>
+        <!-- Template (hidden reusable HTML - used with JavaScript) -->
+    <template id="cardTemplate">
+        <div class="card">
+            <h3>Template Card</h3>
+            <p>This is reusable HTML.</p>
+        </div>
+    </template> <br>
+</body>
+</html>

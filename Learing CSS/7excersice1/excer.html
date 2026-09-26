@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EXCERSICE 1st HTML/CSS</title>
+      <link rel="stylesheet" href="excer.css">
+    <style>*{margin: 0;padding: 0;                  }/*cover all spaces*/
+          h1{color: red;background-color: brown;}
+    #heading{color: blueviolet;                   } /*accortding to prashant sir priority of style tag will be higher then external file
+                                         (here the .css)but in my point of view if we write link after style tag inside the head priority will be snatch by external file,in simple ways whatever selecter is nearer to the targeting element will get the priority  remember this inline styling has the top priority as my words;whatever selecter is nearer to the targeting element will get the priority*/
+      #trh  {color: maroon;        }   /*id selecter     */
+      .inder{color: darkmagenta;   }  /*class selecter  */
+      p     {color:darkcyan;       } /*element selecter*/
+      span  {color: brown;         }
+
+      #first,#second{color: chartreuse; background-color: orchid;}/*group selecter*/
+      
+      div p         {color: darksalmon;                            }/*decendent selecter*/
+      
+      </style> 
+     
+       
+   
+</head>
+<body>
+    <h1>TALHA</h1> <hr>
+    <div id="heading"style="Color:red; background:pink">
+        india                                         <!--style="Color:red; ==> inline selecter-->
+    </div>         <hr>
+
+
+    <div id="trh"     >Lorem ipsum dolor sit amet consectetur.</div>
+    <div class="inder"> BUTERFLY                              </div>
+    <h3  class="inder">  HIHIHIHI   </h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur <span>adipisicing</span> elit. Eaque placeat harum, provident dignissimos quisquam aperiam pariatur iusto animi sed distinctio, asperiores, necessitatibus alias aliquam quidem <span>natus! </span> Maxime vel itaque recusandae saepe debitis!
+    </p><hr>
+
+    <div id="first" >Talha be the best </div>
+    <div id="second">And leave the rest</div>                  <hr>
+
+    
+    <div>
+        <p>
+           
+                 hi TALHA Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, iusto numquam similique laboriosam illo alias atque? Quo asperiores, quos vero sed nulla a odio ipsa, atque corrupti amet maxime iure sint commodi numquam deserunt architecto consequuntur ad quibusdam eos voluptate quod doloremque expedita!
+           
+    </div>
+
+    <article>Lorem ipsum dolor sit amet.</article>
+</body>
+</html>

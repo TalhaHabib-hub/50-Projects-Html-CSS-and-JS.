@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+body{
+    background-color: rgb(3, 94, 94);
+}
+
+#anchors{
+     background-color: black;
+     margin-right: 2px;
+
+     height: 60px;
+    
+
+}
+button{
+    background-color: rgb(198, 120, 2);
+   
+}
+a{
+    margin-right: 190px;
+    text-decoration: none;
+
+} 
+
+
+  #content{
+    height: 760px;
+  } 
+
+
+.contentBox
+{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    margin: 25px;
+    border-style: solid;
+    border-color: black;
+
+}
+footer
+
+{
+background-color: blueviolet;
+text-align: center;
+}

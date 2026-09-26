@@ -1,0 +1,56 @@
+#ar{
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+    border: solid black;
+    transition-property: all;/*so transition property will apply on all properties*/
+    transition-duration: 2s;/*transitions will happens in 2seconds*/
+    /* transition-timing-function: steps(4); */
+    transition-timing-function: ease-in;
+    transition-delay: 1s;/*transition after this much second*/
+
+    /* Transition-shorthand
+    property name/duration/timing-function/delay
+    (e.g transition : all 2s ease-n 1s) */
+}
+#ar:hover{
+    width: 160px;
+    height: 160px;
+    background-color: rgb(37, 7, 72);
+    color: rgb(212, 246, 230);
+    font-size: 34px;
+}
+#ar:active{/*maam use the word pseudo class*/
+    background-color: rgb(30, 136, 69);
+    color: rgb(212, 246, 230);
+}
+button:hover{/*pseudo class*/
+    background-color: yellow;
+    color: maroon;
+    width: 60px;
+    height: 20px;
+    border-radius: 5%;
+}
+/* Transitions
+Transition enable us to define the transition between two states of an element.
+
+transition-property : property you want to transition(font-size, width etc.)
+
+transition-duration :2s/4ms
+transition-timing-function :ease-in/ ease-out/linear/steps.. transitions-style
+
+transition-delay :2s/4ms*/
+#fd{
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+    border: solid black;
+    transition-property: all;
+   transition: all 2s ease-in;
+    position: relative;
+   left: 343px;
+}
+
+#fd:hover{
+    transform: scaleX(2);
+}

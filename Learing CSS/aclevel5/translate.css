@@ -1,0 +1,21 @@
+div{
+    width: 100px;
+    height: 100px;
+    border: solid black;
+    background-color: aquamarine;
+    transition: all;
+    transition-timing-function: ease;
+    transition-duration :3s;
+    transform: 1s;
+}
+div:hover{
+    /* transform: translateX(173px); */
+     /* use for moving elements
+     transform: translate(173px,63px);
+      transform: translatez(-173px); 
+      can use it too*/
+      transform: skew(45deg);/*skew is like a mixture of different affects*/
+}
+body{
+    background-color: crimson;
+}

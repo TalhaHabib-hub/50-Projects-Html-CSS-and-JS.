@@ -1,0 +1,77 @@
+/*animation is another better way of doing transformation
+for doing animation we use key frames */
+/* Animation properties
+animation-name
+animation-duration
+animation-timing-function
+animation-delay
+animation-iteration-count   >decides how many times will the iteration will happen
+animation-direction     >decides at which direction will happen
+write @keyframe outside the div
+then write all this in the div protion */
+body{
+    background-color: blueviolet;
+    animation-name: habib;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-delay: 1s;
+  animation-iteration-count: 4;
+  animation-direction: alternate-reverse;
+}
+div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid black;
+  background-color: aqua;
+  position: absolute;
+  top: 123px;
+  left: 123px;
+  text-align: center;
+  /* animation-name: talha;
+    animation-duration: 0.23s;
+    animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1); */
+  /* animation-delay: 1s;
+    animation-iteration-count: infinite; */
+
+  animation-name: talha2;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-delay: 1s;
+  animation-iteration-count: 4;
+  animation-direction: alternate-reverse;
+
+  /* animation : talha2 3s ease-in 1s 4 normal; */
+  /* }
+@keyframes talha{
+    from{
+        background-color: aqua;
+    }
+    to{
+        background-color: red;
+    } */
+}
+@keyframes talha2 {
+ 0% {
+    background-color: aqua;
+    left: 123px;
+  }
+  45%{
+    background-color: green;
+    top: 45px;
+  }
+ 100% {
+    background-color: red;
+    left: 324px;
+  }
+}
+/*animation also do have shorthand
+first write just animation then colon then 1.name followed by 2.duration next 3.timing function then 4.delay then 5.count finally 6.direction ...like this
+animation : talha2 3s ease-in 1s 4 alternative*/
+
+/*animation is a  process which we can write in the form of percentage instead of from and to*/
+@keyframes habib {
+  from{background-color:  blueviolet;}
+to{
+    background-color: greenyellow;
+}}

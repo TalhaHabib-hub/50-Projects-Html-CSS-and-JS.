@@ -1,0 +1,44 @@
+
+
+.body {
+  height: 100mvh;
+}
+.calculator{
+  /* height: 60vh; */
+  width: 345px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(128, 103, 70);
+  border-radius: 7px;
+}
+input{
+  width: 90%;
+  height: 65px;
+  margin-top: 7px;
+  border-radius: 7px;
+  font-size: x-large;
+  font-weight: 600;
+  text-align: center;
+  border-color: white;
+}
+
+.calculator .buttons{
+   height:80% ;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   flex-grow: 1;
+}
+.buttons button{
+ height: 86px;
+ width: 86px;
+ border-color: white;
+ margin:6px;
+ font-size: x-large;
+ font-weight: 600;
+ border-radius: 7px;
+}

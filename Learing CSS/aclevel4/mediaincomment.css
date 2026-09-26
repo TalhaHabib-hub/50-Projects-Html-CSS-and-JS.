@@ -1,0 +1,96 @@
+
+div{
+    width: 50px;/*to chexk flex rap make it 200*/
+    height: 50px;
+    display: inline-block;
+    border: 2px solid black;
+}
+#container{
+    width:700px;
+    height: 600px;
+    display: flex;/* to use to flex properties in any container first we have to write it or can say we have to make it equal to flex by writing display flex */
+    flex-direction:row;
+    justify-content: center;
+    /*flex-wrap: wrap;due to it if we reduce the width because here we have use row flex direction the element inside it will adjust instead of allowing to reduce their sizes*/
+    /*align-items: center;all the items will allign at start*/
+    /* align-content: flex-start;}all the contents together will allign at start, it also remove thr gape raised by wrap and all that space will come below all content */}
+#box1{
+    background-color: aqua;
+    height: 134px;
+    /* flex-shrink: 4; how much a flex item will shrink relative to the rest of the flex items when container size is reduced */
+}
+#box2{
+    background-color: pink;
+    /*align-self: flex-end;alignment of individual along cross axis.*/
+
+}
+#box3{
+    background-color: darkkhaki;
+    height: 143px;
+    flex-grow: 1/*how much a flex items will grow relative to the rest of the flex of items if space is availab;e /its not just opposite of flex-shrink it compeles the selected flex item to fill all the remaining space*/
+}
+#box4{
+    background-color: indianred;
+    height: 145px;
+     /* flex-shrink: 0; */
+}
+#box5{
+    background-color: slateblue;
+     /*align-self: flex-end;   alignment of individual along cross axis.*/
+}
+/*Flex =Flexible Box Layout
+     it is a one-dimensional layout method for arranging items in rows or columns. */
+/*Flex Direction --> it sets how flex items(elements in other elements) are placed in the flex container, along which axis and direction. 
+     flex-direction: row
+     flex-direction: row-reverse
+     flex-direction: coloumn
+     flex-direction: column-reverse*/
+     /*flex properties: for flex Con tainer 1 is justity-content:alignment along the main  axis.flex-start/flex-end/centre/space-evenly/space-around/space-between
+     
+     flex-wrap > nowrap/wrap/wrap-reverse
+     
+     aligh-items > alignment along the cross-axis.
+     
+     align-content > alignment of space between and around the content along cross axis*/
+     body{
+         background-color: darkgreen;
+     }
+     #mediaquery{
+        width: 190px;
+        height: 190px;
+        background-color: black;
+     }     
+     @media(max-width:300px){
+       #mediaquery{
+        background-color: green;
+       }
+     }
+     @media(min-width:300px)and (max-width:400px){
+       #mediaquery{
+        background-color: pink;
+       }
+     }
+     @media(min-width:400px)and (max-width:600px){
+       #mediaquery{
+        background-color:red ;
+       }
+     }
+     @media(min-width:600px){
+       #mediaquery{
+        background-color: rgb(91, 2, 255);
+       }
+     }
+     /*media quiery is one of the most important concepts we use in CSS . we have seen that when we open a website in laptops the fonts have larger size as compare to mobile phones.
+     this all is because media it is written in this way
+     @media(width: 600px){
+        div{
+        background-color: red; }
+                                    /*when the screen size reaches at 600px the element background color will be red
+     }
+                                    
+     samples
+     (width: 600px) >explained earlier/can also use for height.
+     (min-width:450px) > if we had written this one above the color of the div would be red at above 600px
+     (max-width:450px) > if we had written this one above the color of the div would be red at abelow 600px
+     (min-width:450px)and(mia-width:650px) >we can also do this for applying styling on an element when we want it for screen in a range.the div would be red in screen from 450px to 600px
+     */

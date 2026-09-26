@@ -1,0 +1,1242 @@
+/* =============================================================================
+                    COMPLETE CSS GUIDE - BEGINNER TO ADVANCED
+                               Written for: Talha
+   =============================================================================
+   CSS = Cascading Style Sheets
+   It controls how HTML elements LOOK (colors, fonts, sizes, layouts etc.)
+   ============================================================================= */
+
+
+/* =============================================================================
+   SECTION 1: HOW TO ADD CSS TO HTML
+   =============================================================================
+
+   There are 3 ways to add CSS:
+
+   1. INLINE CSS (directly on the element - not recommended)
+      <p style="color: red; font-size: 20px;">Hello</p>
+
+   2. INTERNAL CSS (inside <style> tag in <head> - for single pages)
+      <head>
+        <style>
+          p { color: red; }
+        </style>
+      </head>
+
+   3. EXTERNAL CSS (separate .css file - BEST WAY)
+      <head>
+        <link rel="stylesheet" href="style.css">
+      </head>
+
+   This file is an EXTERNAL CSS file.
+*/
+
+
+/* =============================================================================
+   SECTION 2: CSS SYNTAX & COMMENTS
+   ============================================================================= */
+
+/* This is a CSS comment - browser ignores this */
+
+/*
+   CSS syntax:
+   selector {
+       property: value;
+       property: value;
+   }
+
+   selector = which HTML element to style
+   property = what to change (color, size, font etc.)
+   value    = what to set it to
+*/
+
+/* Example: make all paragraphs red */
+p {
+    color: red;
+}
+
+
+/* =============================================================================
+   SECTION 3: SELECTORS
+   Selectors = how you pick which HTML element to style
+   ============================================================================= */
+
+/* --- Element selector (selects all of that tag) --- */
+h1 {
+    color: blue;
+}
+
+p {
+    color: black;
+}
+
+/* --- Class selector (starts with a dot) --- */
+/* selects all elements with class="card" */
+.card {
+    background-color: white;
+    padding: 20px;
+}
+
+/* --- ID selector (starts with #) --- */
+/* selects the ONE element with id="header" */
+#header {
+    background-color: navy;
+    color: white;
+}
+
+/* --- Universal selector (selects EVERYTHING) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* very commonly used reset */
+}
+
+/* --- Group selector (select multiple at once using comma) --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+}
+
+/* --- Descendant selector (element inside element) --- */
+/* selects <p> that is INSIDE a <div> */
+div p {
+    color: gray;
+}
+
+/* --- Child selector (direct child only using >) --- */
+/* selects <p> that is DIRECT child of <div> only */
+div > p {
+    color: green;
+}
+
+/* --- Adjacent sibling selector (immediately after using +) --- */
+/* selects <p> that comes immediately after <h1> */
+h1 + p {
+    font-size: 18px;
+}
+
+/* --- General sibling selector (all siblings using ~) --- */
+/* selects all <p> that come after <h1> at same level */
+h1 ~ p {
+    color: gray;
+}
+
+/* --- Attribute selector --- */
+/* selects input where type="text" */
+input[type="text"] {
+    border: 1px solid gray;
+}
+
+/* selects all links that start with https */
+a[href^="https"] {
+    color: green;
+}
+
+/* selects all links that end with .pdf */
+a[href$=".pdf"] {
+    color: red;
+}
+
+/* selects elements where class contains "btn" */
+[class*="btn"] {
+    cursor: pointer;
+}
+
+
+/* =============================================================================
+   SECTION 4: PSEUDO-CLASSES
+   Pseudo-classes = style elements based on their STATE or POSITION
+   ============================================================================= */
+
+/* :hover = when mouse is over the element */
+a:hover {
+    color: orange;
+    text-decoration: underline;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+/* :focus = when element is clicked/selected (like input field) */
+input:focus {
+    outline: 2px solid blue;
+    border-color: blue;
+}
+
+/* :active = while element is being clicked */
+button:active {
+    transform: scale(0.98);
+}
+
+/* :visited = link that has been visited */
+a:visited {
+    color: purple;
+}
+
+/* :link = link that has NOT been visited */
+a:link {
+    color: blue;
+}
+
+/* :checked = checkbox or radio that is checked */
+input:checked {
+    accent-color: purple;
+}
+
+/* :disabled = form element that is disabled */
+input:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+}
+
+/* :required = form element with required attribute */
+input:required {
+    border-left: 3px solid red;
+}
+
+/* :first-child = first child of its parent */
+li:first-child {
+    font-weight: bold;
+}
+
+/* :last-child = last child of its parent */
+li:last-child {
+    border-bottom: none;
+}
+
+/* :nth-child(n) = pick specific child by number */
+li:nth-child(2) {
+    color: blue;               /* 2nd list item */
+}
+
+li:nth-child(odd) {
+    background-color: #f5f5f5; /* every odd item */
+}
+
+li:nth-child(even) {
+    background-color: white;   /* every even item */
+}
+
+li:nth-child(3n) {
+    color: red;                /* every 3rd item */
+}
+
+/* :first-of-type = first element of that type */
+p:first-of-type {
+    font-size: 20px;
+}
+
+/* :last-of-type */
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* :not() = select everything EXCEPT */
+p:not(.special) {
+    color: gray;               /* all p except those with class "special" */
+}
+
+/* :empty = element with no content */
+div:empty {
+    display: none;
+}
+
+/* :root = the <html> element (used for CSS variables) */
+:root {
+    --primary-color: #7F77DD;
+    --secondary-color: #D4537E;
+    --font-size-base: 16px;
+}
+
+
+/* =============================================================================
+   SECTION 5: PSEUDO-ELEMENTS
+   Pseudo-elements = style PARTS of an element
+   ============================================================================= */
+
+/* ::before = insert content BEFORE the element */
+h2::before {
+    content: "→ ";             /* adds arrow before every h2 */
+    color: purple;
+}
+
+/* ::after = insert content AFTER the element */
+.required-field::after {
+    content: " *";             /* adds asterisk after required fields */
+    color: red;
+}
+
+/* ::first-letter = style only the first letter */
+p::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: purple;
+    float: left;
+    margin-right: 5px;
+}
+
+/* ::first-line = style only the first line */
+p::first-line {
+    font-weight: bold;
+    color: navy;
+}
+
+/* ::selection = style text when user selects/highlights it */
+::selection {
+    background-color: purple;
+    color: white;
+}
+
+/* ::placeholder = style placeholder text in inputs */
+input::placeholder {
+    color: lightgray;
+    font-style: italic;
+}
+
+
+/* =============================================================================
+   SECTION 6: COLORS
+   ============================================================================= */
+
+.color-examples {
+    /* Named colors */
+    color: red;
+    color: blue;
+    color: green;
+    color: black;
+    color: white;
+    color: gray;
+    color: orange;
+    color: purple;
+    color: pink;
+
+    /* HEX colors (most common) */
+    color: #ff0000;            /* red */
+    color: #00ff00;            /* green */
+    color: #0000ff;            /* blue */
+    color: #ffffff;            /* white */
+    color: #000000;            /* black */
+    color: #7F77DD;            /* purple (custom) */
+    color: #fff;               /* short hex (3 digits) */
+
+    /* RGB colors */
+    color: rgb(255, 0, 0);     /* red */
+    color: rgb(0, 128, 0);     /* green */
+    color: rgb(127, 119, 221); /* purple */
+
+    /* RGBA colors (A = Alpha = transparency 0 to 1) */
+    color: rgba(255, 0, 0, 1);    /* full red, no transparency */
+    color: rgba(255, 0, 0, 0.5);  /* red, 50% transparent */
+    color: rgba(0, 0, 0, 0.3);    /* black, 70% transparent (overlay) */
+
+    /* HSL colors (Hue, Saturation, Lightness) */
+    color: hsl(0, 100%, 50%);     /* red */
+    color: hsl(240, 100%, 50%);   /* blue */
+    color: hsl(248, 60%, 62%);    /* purple */
+
+    /* HSLA (with alpha) */
+    color: hsla(248, 60%, 62%, 0.8);
+
+    /* background colors */
+    background-color: lightblue;
+    background-color: #f5f5f5;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    /* transparent */
+    background-color: transparent;
+}
+
+
+/* =============================================================================
+   SECTION 7: TEXT & FONT STYLING
+   ============================================================================= */
+
+.text-styling {
+
+    /* Font family */
+    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", serif;
+    font-family: "Courier New", monospace;
+    font-family: Georgia, serif;
+    /* Always provide fallback fonts separated by comma */
+    /* Last font is the generic family: serif, sans-serif, monospace, cursive */
+
+    /* Font size */
+    font-size: 16px;           /* pixels - fixed size */
+    font-size: 1em;            /* relative to parent element's font size */
+    font-size: 1rem;           /* relative to root (html) font size */
+    font-size: 120%;           /* percentage of parent */
+    font-size: 1.5vw;          /* relative to viewport width */
+
+    /* Font weight */
+    font-weight: normal;       /* same as 400 */
+    font-weight: bold;         /* same as 700 */
+    font-weight: 100;          /* thin */
+    font-weight: 300;          /* light */
+    font-weight: 400;          /* normal */
+    font-weight: 500;          /* medium */
+    font-weight: 600;          /* semi-bold */
+    font-weight: 700;          /* bold */
+    font-weight: 900;          /* black/heavy */
+
+    /* Font style */
+    font-style: normal;
+    font-style: italic;
+    font-style: oblique;
+
+    /* Text alignment */
+    text-align: left;
+    text-align: center;
+    text-align: right;
+    text-align: justify;       /* stretches text to fill width */
+
+    /* Text decoration */
+    text-decoration: none;           /* remove underline from links */
+    text-decoration: underline;
+    text-decoration: overline;
+    text-decoration: line-through;
+    text-decoration: underline dotted red;  /* style + color */
+
+    /* Text transformation */
+    text-transform: uppercase;        /* ALL CAPS */
+    text-transform: lowercase;        /* all lowercase */
+    text-transform: capitalize;       /* First Letter Capital */
+    text-transform: none;
+
+    /* Letter spacing */
+    letter-spacing: 2px;       /* space between letters */
+    letter-spacing: -1px;      /* negative = closer together */
+
+    /* Word spacing */
+    word-spacing: 5px;         /* space between words */
+
+    /* Line height */
+    line-height: 1.5;          /* 1.5x the font size (recommended) */
+    line-height: 24px;
+    line-height: 150%;
+
+    /* Text indent */
+    text-indent: 30px;         /* indent first line of paragraph */
+
+    /* White space */
+    white-space: normal;       /* default - wraps text */
+    white-space: nowrap;       /* no wrapping - text stays on one line */
+    white-space: pre;          /* preserves spaces and line breaks */
+
+    /* Text overflow (what happens when text is too long) */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;   /* shows ... when text is cut off */
+
+    /* Text shadow */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    /* x-offset  y-offset  blur  color */
+
+    /* Word break */
+    word-break: break-all;     /* break long words */
+    word-wrap: break-word;     /* wrap long words */
+}
+
+/* Google Fonts - add this in HTML <head> then use the font name */
+/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"> */
+.google-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =============================================================================
+   SECTION 8: THE BOX MODEL
+   Every HTML element is a box with:
+   Content → Padding → Border → Margin
+   ============================================================================= */
+
+.box-model {
+
+    /* WIDTH & HEIGHT */
+    width: 300px;
+    height: 200px;
+    width: 50%;                /* 50% of parent */
+    width: auto;               /* browser calculates */
+    min-width: 200px;          /* never smaller than 200px */
+    max-width: 800px;          /* never bigger than 800px */
+    min-height: 100px;
+    max-height: 500px;
+
+    /* PADDING (space INSIDE the border) */
+    padding: 20px;             /* all 4 sides */
+    padding: 10px 20px;        /* top-bottom  left-right */
+    padding: 10px 20px 30px;   /* top  left-right  bottom */
+    padding: 10px 20px 30px 40px; /* top right bottom left (clockwise) */
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+
+    /* BORDER */
+    border: 1px solid black;   /* width  style  color */
+    border: 2px dashed red;
+    border: 3px dotted blue;
+    border-top: 2px solid navy;
+    border-right: none;
+    border-bottom: 1px solid gray;
+    border-left: 4px solid purple;
+
+    /* Border radius (rounded corners) */
+    border-radius: 10px;       /* all corners */
+    border-radius: 50%;        /* circle (if width = height) */
+    border-radius: 10px 0 10px 0; /* top-left top-right bottom-right bottom-left */
+    border-top-left-radius: 20px;
+
+    /* MARGIN (space OUTSIDE the border) */
+    margin: 20px;              /* all 4 sides */
+    margin: 10px auto;         /* center horizontally (auto left/right) */
+    margin: 10px 20px 30px 40px; /* top right bottom left */
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+
+    /* Negative margin (pulls element) */
+    margin-top: -10px;
+
+    /* BOX SIZING */
+    box-sizing: content-box;   /* default: padding and border ADD to width */
+    box-sizing: border-box;    /* padding and border are INCLUDED in width */
+    /* border-box is much easier to work with - use it always */
+
+    /* OUTLINE (like border but outside, doesn't affect layout) */
+    outline: 2px solid blue;
+    outline-offset: 4px;       /* space between outline and border */
+    outline: none;             /* remove default browser focus outline */
+
+    /* BOX SHADOW */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    /* x-offset  y-offset  blur  color */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);     /* soft shadow below */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* inner shadow */
+    box-shadow: 0 2px 5px red, 0 4px 10px blue;  /* multiple shadows */
+}
+
+
+/* =============================================================================
+   SECTION 9: DISPLAY PROPERTY
+   ============================================================================= */
+
+.display-examples {
+    display: block;        /* takes full width, starts on new line */
+    display: inline;       /* stays in line, can't set width/height */
+    display: inline-block; /* stays in line but CAN set width/height */
+    display: none;         /* completely hidden, takes NO space */
+    display: flex;         /* flexbox layout (section 11) */
+    display: grid;         /* grid layout (section 12) */
+    display: table;        /* behaves like a table */
+}
+
+/* visibility: hidden hides element but KEEPS the space */
+.hidden-but-space {
+    visibility: hidden;
+}
+
+/* display: none removes element AND its space */
+.completely-hidden {
+    display: none;
+}
+
+
+/* =============================================================================
+   SECTION 10: POSITION PROPERTY
+   ============================================================================= */
+
+/* static = default, follows normal page flow */
+.static {
+    position: static;
+}
+
+/* relative = moves RELATIVE to its normal position */
+.relative {
+    position: relative;
+    top: 10px;             /* moves 10px DOWN from normal position */
+    left: 20px;            /* moves 20px RIGHT from normal position */
+}
+
+/* absolute = positions relative to nearest positioned parent */
+.absolute {
+    position: absolute;
+    top: 0;                /* 0px from top of parent */
+    right: 0;              /* 0px from right of parent */
+}
+
+/* fixed = stays fixed on screen even when scrolling */
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;          /* stays on top of other elements */
+}
+
+/* sticky = normal until you scroll to it, then sticks */
+.sticky-header {
+    position: sticky;
+    top: 0;                /* sticks when reaches 0px from top */
+}
+
+/* z-index = which element goes on top (higher = on top) */
+.overlay {
+    position: absolute;
+    z-index: 999;
+}
+
+
+/* =============================================================================
+   SECTION 11: FLEXBOX
+   Flexbox = powerful 1D layout system (row OR column)
+   ============================================================================= */
+
+/* Parent container becomes the flex container */
+.flex-container {
+    display: flex;
+
+    /* flex-direction = which direction items go */
+    flex-direction: row;           /* → left to right (default) */
+    flex-direction: row-reverse;   /* ← right to left */
+    flex-direction: column;        /* ↓ top to bottom */
+    flex-direction: column-reverse;/* ↑ bottom to top */
+
+    /* flex-wrap = what happens when items don't fit in one line */
+    flex-wrap: nowrap;             /* all in one line (default) */
+    flex-wrap: wrap;               /* wraps to next line */
+    flex-wrap: wrap-reverse;       /* wraps upward */
+
+    /* justify-content = alignment on MAIN axis (horizontal in row) */
+    justify-content: flex-start;   /* |items-->           | left aligned */
+    justify-content: flex-end;     /* |           <--items| right aligned */
+    justify-content: center;       /* |    <--items-->    | centered */
+    justify-content: space-between;/* |item    item    item| equal space between */
+    justify-content: space-around; /* | item   item   item | space around each */
+    justify-content: space-evenly; /* equal space everywhere */
+
+    /* align-items = alignment on CROSS axis (vertical in row) */
+    align-items: stretch;          /* items fill full height (default) */
+    align-items: flex-start;       /* items align to top */
+    align-items: flex-end;         /* items align to bottom */
+    align-items: center;           /* items align to vertical center */
+    align-items: baseline;         /* items align by text baseline */
+
+    /* align-content = when there are MULTIPLE lines */
+    align-content: flex-start;
+    align-content: center;
+    align-content: space-between;
+
+    /* gap = space between flex items */
+    gap: 20px;                     /* all directions */
+    gap: 10px 20px;                /* row-gap  column-gap */
+    row-gap: 10px;
+    column-gap: 20px;
+}
+
+/* Child items inside flex container */
+.flex-item {
+
+    /* flex-grow = how much item grows to fill space */
+    flex-grow: 0;          /* doesn't grow (default) */
+    flex-grow: 1;          /* grows equally with others */
+    flex-grow: 2;          /* grows twice as much as flex-grow: 1 */
+
+    /* flex-shrink = how much item shrinks when space is limited */
+    flex-shrink: 1;        /* can shrink (default) */
+    flex-shrink: 0;        /* never shrink */
+
+    /* flex-basis = initial size before growing/shrinking */
+    flex-basis: auto;      /* use element's width/height */
+    flex-basis: 200px;     /* start at 200px */
+    flex-basis: 30%;       /* start at 30% of container */
+
+    /* flex shorthand: grow  shrink  basis */
+    flex: 0 1 auto;        /* default */
+    flex: 1;               /* flex: 1 1 0 (most common - fills space equally) */
+    flex: 1 0 200px;       /* grow, don't shrink, start at 200px */
+
+    /* align-self = override parent's align-items for this item only */
+    align-self: auto;
+    align-self: flex-start;
+    align-self: flex-end;
+    align-self: center;
+
+    /* order = change visual order without changing HTML */
+    order: 0;              /* default */
+    order: 1;              /* moves to end */
+    order: -1;             /* moves to beginning */
+}
+
+/* CENTERING WITH FLEXBOX (most common use) */
+.center-everything {
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center */
+    height: 100vh;             /* full screen height */
+}
+
+
+/* =============================================================================
+   SECTION 12: CSS GRID
+   Grid = powerful 2D layout system (rows AND columns)
+   ============================================================================= */
+
+.grid-container {
+    display: grid;
+
+    /* Define columns */
+    grid-template-columns: 200px 200px 200px;    /* 3 equal columns of 200px */
+    grid-template-columns: 1fr 1fr 1fr;          /* 3 equal columns (fr = fraction) */
+    grid-template-columns: 1fr 2fr 1fr;          /* middle is twice as wide */
+    grid-template-columns: 200px 1fr;            /* fixed + flexible */
+    grid-template-columns: repeat(3, 1fr);       /* repeat 3 times (same as above) */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* responsive */
+
+    /* Define rows */
+    grid-template-rows: 100px 200px 100px;       /* header body footer */
+    grid-template-rows: auto;                    /* rows size to content */
+    grid-auto-rows: 200px;                       /* all auto-created rows = 200px */
+    grid-auto-rows: minmax(100px, auto);         /* min 100px, grows if needed */
+
+    /* Gap between cells */
+    gap: 20px;
+    row-gap: 10px;
+    column-gap: 20px;
+
+    /* Named template areas (visual layout!) */
+    grid-template-areas:
+        "header  header  header"
+        "sidebar content content"
+        "footer  footer  footer";
+
+    /* Alignment */
+    justify-items: start;      /* horizontal alignment of items in cells */
+    justify-items: center;
+    justify-items: end;
+    justify-items: stretch;    /* default - fill the cell */
+
+    align-items: start;        /* vertical alignment of items in cells */
+    align-items: center;
+    align-items: end;
+    align-items: stretch;
+
+    justify-content: start;    /* alignment of the whole grid */
+    justify-content: center;
+    align-content: center;
+}
+
+/* Grid child items */
+.grid-item {
+
+    /* Place item using column and row lines */
+    grid-column: 1 / 3;        /* from line 1 to line 3 (spans 2 columns) */
+    grid-column: 1 / -1;       /* from first to last line (full width) */
+    grid-column: span 2;       /* span 2 columns from current position */
+
+    grid-row: 1 / 3;           /* spans 2 rows */
+    grid-row: span 2;
+
+    /* Place item in named area */
+    grid-area: header;
+    grid-area: sidebar;
+    grid-area: content;
+    grid-area: footer;
+
+    /* Self alignment (overrides container's alignment) */
+    justify-self: center;
+    align-self: center;
+}
+
+/* Named template areas example */
+.page-layout {
+    display: grid;
+    grid-template-areas:
+        "header  header"
+        "sidebar content"
+        "footer  footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    min-height: 100vh;
+    gap: 10px;
+}
+.page-layout header { grid-area: header;  background: navy; }
+.page-layout aside  { grid-area: sidebar; background: lightgray; }
+.page-layout main   { grid-area: content; background: white; }
+.page-layout footer { grid-area: footer;  background: navy; }
+
+
+/* =============================================================================
+   SECTION 13: BACKGROUNDS
+   ============================================================================= */
+
+.backgrounds {
+
+    /* Background color */
+    background-color: lightblue;
+
+    /* Background image */
+    background-image: url("bg.jpg");
+    background-image: url("https://example.com/image.jpg");
+
+    /* Background size */
+    background-size: auto;         /* original size */
+    background-size: cover;        /* covers entire element (may crop) */
+    background-size: contain;      /* fits inside element (may show gaps) */
+    background-size: 300px 200px;  /* exact size */
+    background-size: 50%;
+
+    /* Background position */
+    background-position: center center;
+    background-position: top left;
+    background-position: 50% 50%;
+    background-position: 20px 40px;
+
+    /* Background repeat */
+    background-repeat: repeat;     /* tiles in both directions (default) */
+    background-repeat: no-repeat;  /* shows once */
+    background-repeat: repeat-x;   /* tiles horizontally only */
+    background-repeat: repeat-y;   /* tiles vertically only */
+
+    /* Background attachment (scroll or fixed) */
+    background-attachment: scroll; /* moves with page (default) */
+    background-attachment: fixed;  /* stays fixed when scrolling (parallax) */
+
+    /* Background shorthand: color image repeat attachment position/size */
+    background: #f5f5f5 url("bg.jpg") no-repeat center/cover;
+
+    /* CSS Gradients */
+    background: linear-gradient(to right, red, blue);
+    background: linear-gradient(to bottom right, #7F77DD, #D4537E);
+    background: linear-gradient(135deg, purple, pink, orange);
+    background: linear-gradient(to right, red 0%, yellow 50%, green 100%);
+
+    /* Radial gradient (circular) */
+    background: radial-gradient(circle, white, black);
+    background: radial-gradient(ellipse at center, #7F77DD, #1a1a2e);
+
+    /* Multiple backgrounds */
+    background:
+        url("top-layer.png") no-repeat center top,
+        url("bottom-layer.jpg") no-repeat center/cover;
+}
+
+
+/* =============================================================================
+   SECTION 14: TRANSITIONS
+   Transitions = smooth animation when a property changes
+   ============================================================================= */
+
+.button {
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+
+    /* transition: property  duration  timing-function  delay */
+    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;          /* animate ALL changes */
+    transition: transform 0.2s ease, background-color 0.3s ease; /* multiple */
+}
+
+.button:hover {
+    background-color: darkpurple;
+    transform: scale(1.05);              /* grows 5% on hover */
+}
+
+/* Timing functions */
+.timing-examples {
+    transition-timing-function: ease;          /* slow → fast → slow (default) */
+    transition-timing-function: linear;        /* constant speed */
+    transition-timing-function: ease-in;       /* slow at start */
+    transition-timing-function: ease-out;      /* slow at end */
+    transition-timing-function: ease-in-out;   /* slow at both ends */
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+/* =============================================================================
+   SECTION 15: ANIMATIONS
+   Animations = more complex than transitions, can loop, have multiple steps
+   ============================================================================= */
+
+/* Step 1: Define the animation using @keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;             /* start invisible */
+    }
+    to {
+        opacity: 1;             /* end fully visible */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-20px); }
+}
+
+@keyframes colorChange {
+    0%   { background-color: red; }
+    33%  { background-color: green; }
+    66%  { background-color: blue; }
+    100% { background-color: red; }
+}
+
+/* Step 2: Apply the animation to an element */
+.animated-box {
+    /* animation: name  duration  timing  delay  repeat  direction  fill-mode */
+    animation: fadeIn 1s ease 0s 1 normal forwards;
+
+    /* or use individual properties: */
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0.5s;           /* wait 0.5s before starting */
+    animation-iteration-count: 1;    /* how many times: 1, 3, infinite */
+    animation-direction: normal;     /* normal, reverse, alternate */
+    animation-fill-mode: forwards;   /* keep final state after finishing */
+    animation-play-state: running;   /* running or paused */
+}
+
+.spinner {
+    animation: spin 1s linear infinite;    /* spin forever */
+}
+
+.pulsing-button {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+
+/* =============================================================================
+   SECTION 16: TRANSFORM
+   Transform = move, rotate, scale, skew elements
+   ============================================================================= */
+
+.transform-examples {
+
+    /* Translate (move) */
+    transform: translateX(50px);      /* move right 50px */
+    transform: translateY(-20px);     /* move up 20px */
+    transform: translate(50px, -20px);/* move right and up */
+    transform: translateX(50%);       /* move right by 50% of its own width */
+
+    /* Scale (resize) */
+    transform: scale(1.5);            /* 1.5x bigger */
+    transform: scale(0.5);            /* half size */
+    transform: scaleX(2);             /* double width only */
+    transform: scaleY(0.5);           /* half height only */
+    transform: scale(1.2, 0.8);       /* x and y separately */
+
+    /* Rotate */
+    transform: rotate(45deg);         /* rotate 45 degrees clockwise */
+    transform: rotate(-90deg);        /* rotate 90 degrees counter-clockwise */
+    transform: rotateX(45deg);        /* rotate on X axis (3D flip) */
+    transform: rotateY(180deg);       /* rotate on Y axis (card flip) */
+
+    /* Skew (slant) */
+    transform: skewX(20deg);
+    transform: skewY(10deg);
+    transform: skew(20deg, 10deg);
+
+    /* Multiple transforms together */
+    transform: translate(50px, 20px) rotate(45deg) scale(1.2);
+
+    /* Transform origin (pivot point for rotation/scale) */
+    transform-origin: center center;  /* default */
+    transform-origin: top left;
+    transform-origin: 0 0;
+}
+
+
+/* =============================================================================
+   SECTION 17: CSS VARIABLES (CUSTOM PROPERTIES)
+   ============================================================================= */
+
+/* Define variables in :root so they work everywhere */
+:root {
+    /* Colors */
+    --color-primary:    #7F77DD;
+    --color-secondary:  #D4537E;
+    --color-accent:     #EF9F27;
+    --color-dark:       #1a1a2e;
+    --color-light:      #f5f5f5;
+    --color-text:       #333333;
+
+    /* Typography */
+    --font-main:        'Poppins', sans-serif;
+    --font-size-sm:     14px;
+    --font-size-md:     16px;
+    --font-size-lg:     20px;
+    --font-size-xl:     28px;
+
+    /* Spacing */
+    --spacing-xs:  4px;
+    --spacing-sm:  8px;
+    --spacing-md:  16px;
+    --spacing-lg:  32px;
+    --spacing-xl:  64px;
+
+    /* Border radius */
+    --radius-sm:   4px;
+    --radius-md:   8px;
+    --radius-lg:   16px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm:  0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md:  0 4px 15px rgba(0,0,0,0.1);
+    --shadow-lg:  0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Use variables with var() */
+.card {
+    background-color: var(--color-light);
+    color: var(--color-text);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    font-family: var(--font-main);
+    font-size: var(--font-size-md);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-full);
+}
+
+/* Override a variable for a specific section */
+.dark-section {
+    --color-text: white;           /* only affects elements inside this section */
+    background-color: var(--color-dark);
+    color: var(--color-text);
+}
+
+/* Variable with fallback value */
+.element {
+    color: var(--color-brand, blue);  /* if --color-brand not defined, use blue */
+}
+
+
+/* =============================================================================
+   SECTION 18: RESPONSIVE DESIGN & MEDIA QUERIES
+   ============================================================================= */
+
+/* Mobile first approach: write CSS for mobile, then add media queries for bigger screens */
+
+/* Base styles (for all screens / mobile) */
+.container {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;    /* 1 column on mobile */
+    gap: 20px;
+}
+
+/* Tablet (768px and above) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns on tablet */
+    }
+}
+
+/* Desktop (1024px and above) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+    }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);  /* 3 columns on desktop */
+    }
+}
+
+/* Large Desktop (1440px and above) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Common breakpoints: */
+/* 480px  = small phones */
+/* 768px  = tablets */
+/* 1024px = laptops */
+/* 1280px = desktops */
+/* 1440px = large screens */
+
+/* Other media query conditions */
+@media (max-width: 480px) {
+    /* only for screens SMALLER than 480px */
+    .navbar { display: none; }
+}
+
+@media (orientation: landscape) {
+    /* when phone is held sideways */
+    .hero { height: 70vh; }
+}
+
+@media (prefers-color-scheme: dark) {
+    /* when user has dark mode enabled on their device */
+    :root {
+        --color-text:  white;
+        --color-light: #1a1a2e;
+    }
+    body {
+        background: #1a1a2e;
+        color: white;
+    }
+}
+
+@media print {
+    /* when user prints the page */
+    .navbar, .footer, .ads { display: none; }
+    body { font-size: 12pt; }
+}
+
+
+/* =============================================================================
+   SECTION 19: OVERFLOW
+   ============================================================================= */
+
+.overflow-examples {
+    overflow: visible;     /* content spills outside (default) */
+    overflow: hidden;      /* clips content that doesn't fit */
+    overflow: scroll;      /* always shows scrollbar */
+    overflow: auto;        /* shows scrollbar only when needed */
+
+    overflow-x: hidden;    /* hide horizontal overflow */
+    overflow-y: scroll;    /* scroll vertically only */
+
+    /* Useful trick: hide text that doesn't fit */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;  /* shows ... at the end */
+}
+
+
+/* =============================================================================
+   SECTION 20: USEFUL UTILITY CLASSES & TRICKS
+   ============================================================================= */
+
+/* Centering trick using flexbox */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centering trick using position */
+.center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Full screen hero section */
+.hero {
+    width: 100%;
+    min-height: 100vh;          /* 100% of viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Smooth scroll for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default list styles */
+.clean-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove default link styles */
+.clean-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Truncate long text with ... */
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Aspect ratio box (keeps 16:9 ratio) */
+.video-wrapper {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+/* Visually hidden but readable by screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Cursor styles */
+.pointer { cursor: pointer; }
+.not-allowed { cursor: not-allowed; }
+.grab { cursor: grab; }
+
+/* Prevent text selection */
+.no-select {
+    user-select: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #7F77DD; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #534AB7; }
+
+
+/* =============================================================================
+                              END OF GUIDE
+             You've covered CSS from Beginner to Advanced!
+                          Keep styling Talha! 🚀
+   ============================================================================= */

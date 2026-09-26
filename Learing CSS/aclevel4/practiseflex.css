@@ -1,0 +1,39 @@
+#container{
+    background-color: pink;
+    display: flex;
+    justify-content: space-evenly;
+}
+li{
+
+display: inline;
+list-style-type: none;
+}
+a{
+    color: rgb(177, 8, 8);
+    text-decoration: none;
+}
+#over{
+    width: 100px;
+    height: 100px;
+    background-color: chartreuse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#inside{
+     width: 50px;
+    height: 50px;
+     background-color: rgb(69, 50, 71);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+#farin{
+     width: 25px;
+     height: 25px;
+     background-color: rgb(213, 245, 5);
+}
+body{
+    background-color: brown;
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chemistry Department College Chitral</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-badge">Ch</div>
+      <span>Chemistry Department Chitral</span>
+    </div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#lectures">Lectures</a>
+      <a href="#practicals">Practicals</a>
+      <a href="#analytics">Analytics</a>
+      <button class="cta-btn" id="openLogin">Login</button>
+    </nav>
+  </header>
+
+  <section class="hero" id="overview">
+    <div class="hero-card">
+      <span class="chip">National Research Institute • 2026 Intake</span>
+      <h1>Chemistry that powers the future.</h1>
+      <p>
+        Explore lectures, advanced practicals, live academic performance, and collaborative student-teacher workflows in one immersive departmental dashboard designed for a high-performance chemistry institute.
+      </p>
+      <div class="hero-grid">
+        <button class="cta-btn" id="openLogin2">Student / Teacher Access</button>
+        <span class="chip">Live Research Labs • Smart Attendance • Module Control</span>
+      </div>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric">
+        <strong id="studentCount">1280</strong>
+        <span>Student Researchers</span>
+      </div>
+      <div class="metric">
+        <strong id="teacherCount">94</strong>
+        <span>Faculty Members</span>
+      </div>
+      <div class="metric">
+        <strong id="labCount">18</strong>
+        <span>Active Labs</span>
+      </div>
+      <div class="metric">
+        <strong id="pubCount">246</strong>
+        <span>Published Papers</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="content">
+    <section class="panel">
+      <div class="section-title">
+        <h2>Lectures</h2>
+        <span class="chip">Weekly Schedule</span>
+      </div>
+      <div class="section-body">
+        <div class="item-list" id="lectureList"></div>
+        <div class="form-grid">
+          <input type="text" id="lectureTitle" placeholder="Lecture topic" />
+          <input type="text" id="lectureVenue" placeholder="Venue" />
+          <input type="text" id="lectureTime" placeholder="Time" />
+          <button class="btn primary" id="addLecture">Add Lecture</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="practicals">
+      <div class="section-title">
+        <h2>Practical Modules</h2>
+        <span class="chip">Lab Coordination</span>
+      </div>
+      <div class="section-body">
+        <div class="item-list" id="practicalList"></div>
+        <div class="form-grid">
+          <input type="text" id="practicalTitle" placeholder="Practical title" />
+          <input type="text" id="practicalLab" placeholder="Lab" />
+          <input type="text" id="practicalTime" placeholder="Batch time" />
+          <button class="btn primary" id="addPractical">Add Practical</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="analytics">
+      <div class="section-title">
+        <h2>Academic Analytics</h2>
+        <span class="chip">Student Progress</span>
+      </div>
+      <div class="analytics-grid">
+        <div>
+          <div class="bar-row">
+            <strong>Organic Chemistry</strong>
+            <div class="bar-track"><div class="bar-fill" style="width: 85%"></div></div>
+          </div>
+          <div class="bar-row">
+            <strong>Physical Chemistry</strong>
+            <div class="bar-track"><div class="bar-fill" style="width: 78%"></div></div>
+          </div>
+          <div class="bar-row">
+            <strong>Analytical Chemistry</strong>
+            <div class="bar-track"><div class="bar-fill" style="width: 91%"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="bar-row">
+            <strong>Lab Attendance</strong>
+            <div class="bar-track"><div class="bar-fill" style="width: 88%"></div></div>
+          </div>
+          <div class="bar-row">
+            <strong>Research Participation</strong>
+            <div class="bar-track"><div class="bar-fill" style="width: 74%"></div></div>
+          </div>
+          <div class="bar-row">
+            <strong>Publication Contribution</strong>
+            <div class="bar-track"><div class="bar-fill" style="width: 69%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <h2>Faculty & Department Feed</h2>
+        <span class="chip">Teacher Control</span>
+      </div>
+      <div class="section-body">
+        <div class="item-list" id="noticeList"></div>
+        <div class="form-grid">
+          <textarea id="noticeInput" placeholder="Broadcast a new department update..."></textarea>
+          <button class="btn primary" id="addNotice">Post Notice</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <h2>Student Interaction Board</h2>
+        <span class="chip">Community Forum</span>
+      </div>
+      <div class="section-body">
+        <div class="item-list" id="discussionList"></div>
+        <div class="form-grid">
+          <input type="text" id="studentName" placeholder="Your name" />
+          <input type="text" id="studentQuestion" placeholder="Ask a chemistry question" />
+          <button class="btn primary" id="addQuestion">Post Query</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-credit">
+    Chemistry Department Chitral — made by Talha Habib
+  </footer>
+
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <div class="switch-row">
+        <button class="btn active" data-role="student">Student Login</button>
+        <button class="btn" data-role="teacher">Teacher Login</button>
+        <button class="btn" data-role="admin">Admin Panel</button>
+      </div>
+
+      <div id="studentForm">
+        <div class="form-grid">
+          <input type="text" value="2026CHEM-104" readonly />
+          <input type="text" value="Student ID" readonly />
+          <input type="text" value="Aarav Sharma" readonly />
+          <input type="text" value="aarav.sharma@institute.edu" readonly />
+        </div>
+        <div class="section-body" style="margin-top: 16px;">
+          <button class="btn primary" id="loginStudent">Enter Student Dashboard</button>
+        </div>
+      </div>
+
+      <div id="teacherForm" class="hidden">
+        <div class="form-grid">
+          <input type="text" value="TC-018" readonly />
+          <input type="text" value="Faculty Code" readonly />
+          <input type="text" value="Dr. Neha Kapoor" readonly />
+          <input type="text" value="neha.kapoor@institute.edu" readonly />
+        </div>
+        <div class="section-body" style="margin-top: 16px;">
+          <button class="btn primary" id="loginTeacher">Open Teacher Panel</button>
+        </div>
+      </div>
+
+      <div id="adminForm" class="hidden">
+        <div class="form-grid">
+          <input type="text" value="ADM-001" readonly />
+          <input type="text" value="Director Access" readonly />
+          <input type="text" value="Prof. Rohan Mehta" readonly />
+          <input type="text" value="director@institute.edu" readonly />
+        </div>
+        <div class="section-body" style="margin-top: 16px;">
+          <button class="btn primary" id="loginAdmin">Access Department Control</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

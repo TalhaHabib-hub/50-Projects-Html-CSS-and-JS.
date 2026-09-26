@@ -1,0 +1,12 @@
+.one, .three{
+  border: none;
+  background-color: rgb(3, 230, 151);
+  height: 26px;
+  border-radius: 9px;
+}
+.two{
+  width: 148px;
+  height: 26px;
+  border-radius: 9px;
+  text-transform: uppercase;
+}

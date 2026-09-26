@@ -1,0 +1,35 @@
+div
+{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    display: inline-block;
+    border: solid black;
+}
+#box1{
+    position: static;/*static- default position (The top ,right,bottom,left, and z-index properties have no effects)*/
+}
+#box2{
+    position: relative;
+    top: 23px;/*relative-element is relative to itself.(The top ,right,bottom,left, and z-index will work)*/
+    left: 43px;
+    z-index: 1;/*by default if any two elements overcomes each other the later one will be over the earlier one like here box 5 will be over box2 ,but to make it in our control we use z-index ,with the help of  it i opposited the dfault and bring box 2 over 5*/
+    
+}
+#box3{
+    position: absolute;/*absolute-positioned relative to its closest positioned (non-static) ancestor(parent tag ,here is the body tag).(removed from flow)*/
+    top: 900px;
+    left: 150px;
+    
+}
+#box4{
+    position: fixed;/*fixed- positioned relative to browser.(removed from the flow)*/
+    top: 0px;
+    left: 20px;
+}
+#box5{
+    position: sticky;/*sticky- positioned based on user's scroll position*/
+    top: 0px;
+    left: 250px;
+    
+}

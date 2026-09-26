@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+body{
+    background-color: darkslategrey;
+}
+#b{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 50%;
+    text-align: center;
+}
+#a {
+    width: 140px;
+    height: 430px;
+    background-color: rgb(3, 3, 5);
+    padding-left: 24px;
+}
+#logo{
+    color: peru;
+    font-size: 25px;}
+
+#anchors{
+    position: fixed;
+     background-color: black;
+     margin-right: 2px;
+     border-color: white;
+     height: 60px;
+     border-width: 5px;
+     border-style: solid;
+
+}
+button{
+    background-color: rgb(198, 120, 2);
+   
+}
+a{
+    margin-right: 190px;
+    text-decoration: none;
+}
+#khan{
+    display: inline;
+}
+ #jan{
+    display: block;
+} 
+#box1{
+   background-color: rgb(187, 46, 46,0.4);
+    width: 100px;
+    height: 100px;
+    margin: 25px;
+      padding: 25px;
+      display: inline;/*will make the block element inline but a problem is their we can't use margin and padding to use it we use inline block as below*/
+}
+#box2{     background-color: blue;
+    width: 100px;
+    height: 100px;
+    margin: 25px;
+    padding: 25px;
+    display: inline-block;
+    display: none;/*it will remove the element completely,we can also use visibility :none but it will still reserved space for it while the previous one finishes*/
+}
+
+#box3{    background-color:green;
+    width: 100px;
+    height: 100px;
+  margin: 25px;
+    padding: 25px;
+    display: inline-block;
+}
+    
